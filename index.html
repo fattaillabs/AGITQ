@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>아기티큐 플레이북</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 500px;
+            width: 100%;
+            background-color: #fff;
+            padding: 50px 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        
+        .logo-container {
+            margin-bottom: 30px;
+        }
+        
+        .logo-placeholder {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo-placeholder img {
+            width: 100%;
+            height: 100%;
+            border-radius: 24px;
+            object-fit: cover;
+        }
+        
+        /* 이미지가 없을 때 표시될 플레이스홀더 텍스트 */
+        .logo-placeholder::before {
+            content: "📈";
+            font-size: 48px;
+        }
+        
+        .logo-placeholder:has(img)::before {
+            content: none;
+        }
+        
+        h1 {
+            font-size: 28px;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+        }
+        
+        .tagline {
+            color: #666;
+            font-size: 16px;
+            margin-bottom: 40px;
+        }
+        
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .link-card {
+            display: block;
+            padding: 20px 25px;
+            background-color: #f8f9fa;
+            border-radius: 12px;
+            text-decoration: none;
+            color: #333;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .link-card:hover {
+            background-color: #fff;
+            border-color: #667eea;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.2);
+        }
+        
+        .link-card .icon {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+        
+        .link-card .title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        
+        .link-card .description {
+            font-size: 14px;
+            color: #888;
+        }
+        
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            font-size: 13px;
+            color: #999;
+        }
+        
+        .footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        
+        .app-store-badge {
+            margin-top: 20px;
+        }
+        
+        .app-store-badge img {
+            height: 44px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo-container">
+            <div class="logo-placeholder">
+                <!-- 앱 로고 이미지를 여기에 추가하세요 -->
+                <!-- <img src="app-icon.png" alt="아기티큐 플레이북 로고"> -->
+            </div>
+        </div>
+        
+        <h1>아기티큐 플레이북</h1>
+        <p class="tagline">TQQQ 200일선 매매기법 가이드 앱</p>
+        
+        <div class="links">
+            <a href="AGITQ-introduction.html" class="link-card">
+                <div class="icon">📈</div>
+                <div class="title">아기티큐 매매기법</div>
+                <div class="description">200일선 기반 자산배분 전략 소개</div>
+            </a>
+            
+            <a href="privacy-policy.html" class="link-card">
+                <div class="icon">🔒</div>
+                <div class="title">개인정보 보호 정책</div>
+                <div class="description">앱의 개인정보 처리 방침</div>
+            </a>
+        </div>
+        
+        <div class="footer">
+            <p>© 2024 FatTail Labs. All rights reserved.</p>
+            <p style="margin-top: 8px;">
+                문의: <a href="mailto:fattaillabs.ceo@gmail.com">fattaillabs.ceo@gmail.com</a>
+            </p>
+            
+            <!-- 앱스토어 출시 후 배지 추가 -->
+            <!--
+            <div class="app-store-badge">
+                <a href="https://apps.apple.com/app/아기티큐-플레이북/id000000000">
+                    <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/ko-kr" alt="App Store에서 다운로드">
+                </a>
+            </div>
+            -->
+        </div>
+    </div>
+</body>
+</html>
