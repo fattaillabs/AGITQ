@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AGITQ Trading Strategy - AGITQ Playbook</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.7;
+            color: #333;
+            background-color: #f5f7fa;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        h1 {
+            font-size: 32px;
+            color: #1a1a1a;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 16px;
+        }
+        
+        .creator-info {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 12px;
+            color: white;
+        }
+        
+        .creator-info p {
+            margin-bottom: 10px;
+        }
+        
+        .creator-info a {
+            color: #fff;
+            text-decoration: underline;
+            font-weight: 600;
+        }
+        
+        h2 {
+            font-size: 22px;
+            color: #2c3e50;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+        
+        h3 {
+            font-size: 18px;
+            color: #34495e;
+            margin-top: 25px;
+            margin-bottom: 12px;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        .rule-card {
+            margin: 20px 0;
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 5px solid;
+        }
+        
+        .rule-card.bearish {
+            background-color: #fef3f3;
+            border-color: #e74c3c;
+        }
+        
+        .rule-card.bullish {
+            background-color: #f0fdf4;
+            border-color: #27ae60;
+        }
+        
+        .rule-card.overheat {
+            background-color: #fffbeb;
+            border-color: #f39c12;
+        }
+        
+        .rule-card h4 {
+            font-size: 17px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .rule-card.bearish h4 { color: #c0392b; }
+        .rule-card.bullish h4 { color: #1e8449; }
+        .rule-card.overheat h4 { color: #d68910; }
+        
+        .condition {
+            font-family: 'SF Mono', Consolas, monospace;
+            background-color: rgba(0,0,0,0.05);
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        
+        .warning-box {
+            background-color: #fef9e7;
+            border: 2px solid #f1c40f;
+            border-radius: 12px;
+            padding: 25px;
+            margin: 30px 0;
+        }
+        
+        .warning-box h4 {
+            color: #9a7b0a;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        
+        .summary-box {
+            background: linear-gradient(135deg, #e8f4f8 0%, #d4edda 100%);
+            border-radius: 12px;
+            padding: 25px;
+            margin: 30px 0;
+        }
+        
+        .summary-box h4 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        
+        .summary-box ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .summary-box li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .summary-box li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+            font-weight: bold;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            color: #888;
+            font-size: 14px;
+        }
+        
+        .disclaimer {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 30px;
+            font-size: 13px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📈 AGITQ Trading Strategy</h1>
+        <p class="subtitle">TQQQ 200-Day Moving Average Asset Allocation Strategy</p>
+        
+        <div class="creator-info">
+            <p>A unique investment strategy developed by <strong>AGITQ</strong>.</p>
+            <p>📝 Official Blog (Korean): <a href="https://blog.naver.com/humblich" target="_blank">blog.naver.com/humblich</a></p>
+        </div>
+        
+        <h2>Basic Concept</h2>
+        <p>
+            The AGITQ trading strategy uses the 200-day moving average of TQQQ (NASDAQ 3x Leveraged ETF) 
+            to assess market conditions and execute appropriate asset allocation.
+        </p>
+        
+        <h2>Three Market Conditions & Action Rules</h2>
+        <p>The core of this strategy lies in <strong>three clear action rules</strong> based on market conditions.</p>
+        
+        <div class="rule-card bearish">
+            <h4>🔴 Bearish Condition</h4>
+            <p class="condition">TQQQ Price &lt; 200MA</p>
+            <p>
+                <strong>Sell all</strong> growth assets (TQQQ, S&P500 ETF) and convert to 
+                <strong>100% SGOV</strong> (Short-term Treasury ETF).
+            </p>
+        </div>
+        
+        <div class="rule-card bullish">
+            <h4>🟢 Concentrated Investment</h4>
+            <p class="condition">200MA &lt; TQQQ Price &lt; 200MA + 5%</p>
+            <p>
+                Convert all safe assets (SGOV) to <strong>TQQQ</strong>. 
+                New funds should also buy TQQQ. 
+                However, if you hold S&P500 ETF from the "Overheated" phase, <strong>keep holding it</strong>.
+            </p>
+            <p><em>→ This is the key zone for maximizing returns.</em></p>
+        </div>
+        
+        <div class="rule-card overheat">
+            <h4>🟡 Overheated Condition</h4>
+            <p class="condition">TQQQ Price &gt; 200MA + 5%</p>
+            <p>
+                <strong>Hold</strong> existing TQQQ positions. 
+                New funds (salary, etc.) should buy <strong>S&P500 ETF</strong> to manage risk.
+            </p>
+            <p><em>→ This may signal short-term overheating, so add stable assets instead of chasing.</em></p>
+        </div>
+        
+        <div class="warning-box">
+            <h4>⚠️ Very Important: Why You Should Keep S&P500 ETF</h4>
+            <p>
+                During "Concentrated Investment," you might be tempted to sell S&P500 ETF and go all-in on TQQQ. 
+                However, this can be <strong>the worst decision that eats away at long-term returns</strong>.
+            </p>
+            <p>
+                S&P500 ETF acts as a <strong>'ballast'</strong> that prevents your entire portfolio from collapsing 
+                when TQQQ crashes. This small stability creates <strong>huge return differences</strong> through 
+                the magic of compounding over the long term.
+            </p>
+            <p>
+                Of course, when "Bearish Condition" arrives, S&P500 ETF should also be <strong>sold according to the rules</strong> 
+                and converted to SGOV.
+            </p>
+        </div>
+        
+        <div class="summary-box">
+            <h4>📋 Key Summary</h4>
+            <ul>
+                <li><strong>Bear Market</strong>: Sell all assets → 100% SGOV</li>
+                <li><strong>Bull Market (near 200MA)</strong>: SGOV → TQQQ, keep S&P500 ETF</li>
+                <li><strong>Overheated (200MA +5% or more)</strong>: New funds to S&P500 ETF, hold TQQQ</li>
+                <li><strong>Don't sell S&P500 ETF</strong>: Never sell during concentrated investment (except in bear market)</li>
+            </ul>
+        </div>
+        
+        <div class="disclaimer">
+            <strong>⚠️ Investment Disclaimer</strong><br>
+            This trading strategy is for reference only. All investment decisions and responsibilities 
+            lie with the investor. Leveraged ETFs carry high potential returns along with high risk of loss. 
+            Please invest carefully with sufficient knowledge and understanding.
+        </div>
+        
+        <div class="footer">
+            <p>© 2024 AGITQ Playbook. Trading strategy copyright belongs to AGITQ.</p>
+        </div>
+    </div>
+</body>
+</html>
