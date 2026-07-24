@@ -121,10 +121,10 @@
     <div class="container">
         <h1>Privacy Policy</h1>
         <p class="app-name">AGITQ Playbook</p>
-        <p class="update-date">Last Updated: December 30, 2024</p>
+        <p class="update-date">Last Updated: July 24, 2026</p>
         
         <div class="highlight">
-            <strong>Summary:</strong> AGITQ Playbook does not directly collect any personal information. However, third-party advertising providers may collect certain information for ad services.
+            <strong>Summary:</strong> Your data (portfolio, settings) stays on your device by default. If you enable push notifications, your device push token is stored on our server solely to deliver alerts. If you use AI re-scan (PRO), the screenshot you select is transmitted for analysis and discarded immediately. Third-party advertising providers may collect certain information for ad services.
         </div>
         
         <h2>1. Introduction</h2>
@@ -137,12 +137,22 @@
         
         <h3>2.1 Information Collected Directly by the App</h3>
         <p>
-            <strong>AGITQ Playbook does not directly collect any personal information.</strong>
+            Data you enter in the App (portfolio information, settings, etc.) is stored on your device by default. 
+            Minimal information is sent to our server only when you use the following two features.
         </p>
-        <p>
-            All data you enter in the App (portfolio information, settings, etc.) is stored only on your device 
-            and is not transmitted to any external servers.
-        </p>
+        <h4>a. Push Notifications (optional)</h4>
+        <ul>
+            <li>Collected: device push token (APNs/FCM), an anonymous app-generated device identifier, and per-notification preferences</li>
+            <li>Purpose: delivering market signal alerts and the morning briefing</li>
+            <li>Storage: kept on our server (Cloudflare infrastructure) solely for delivery; tokens are removed automatically when delivery fails after you disable notifications or delete the App.</li>
+            <li>Your portfolio and investment data are never sent to the server.</li>
+        </ul>
+        <h4>b. AI Screenshot Re-scan (PRO, optional)</h4>
+        <ul>
+            <li>Only when you explicitly choose "Use AI", the selected screenshot is transmitted via our server to the Google Gemini API for analysis.</li>
+            <li>Images are not stored and are discarded immediately after analysis. Results (ticker, shares, average cost) are saved only on your device.</li>
+            <li>Google's processing is subject to the Google API Terms of Service.</li>
+        </ul>
         
         <h3>2.2 Information Collected by Third Parties (Advertising)</h3>
         <p>
@@ -157,7 +167,8 @@
         </ul>
         
         <h2>3. Purpose of Information Use</h2>
-        <p>Information collected by third parties (Google AdMob) is used for the following purposes:</p>
+        <p>Information we collect (push tokens, AI re-scan images) is used only for the purposes described in Section 2.1. 
+        Information collected by third parties (Google AdMob) is used for the following purposes:</p>
         <ul>
             <li>Delivering personalized advertisements</li>
             <li>Measuring and analyzing ad performance</li>
@@ -175,7 +186,8 @@
         
         <h2>5. Data Storage</h2>
         <p>
-            All data used in the App (portfolio, settings, etc.) is stored locally on your device.
+            Data used in the App (portfolio, settings, etc.) is stored locally on your device. 
+            As an exception, only your push notification token is stored on our server (see Section 2.1).
             Deleting the App will also delete all associated data.
         </p>
         
