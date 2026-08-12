@@ -32,6 +32,11 @@ body { font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Segoe
 .btn.ghost { color:#cfd5ea; border:1px solid rgba(255,255,255,.25); }
 .btn.primary:hover { filter:brightness(1.08); }
 .btn.ghost:hover { background:rgba(255,255,255,.07); }
+.store-row { display:flex; gap:10px; margin-top:18px; flex-wrap:wrap; align-items:center; }
+.store-badge { display:inline-block; transition:transform .2s ease, filter .2s ease; }
+.store-badge img { height:48px; display:block; border-radius:8px; }
+.store-badge:hover { transform:translateY(-2px); filter:drop-shadow(0 8px 18px rgba(0,0,0,.35)); }
+.ic svg, .fi svg, .li svg { width:20px; height:20px; stroke:currentColor; fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; display:block; }
 
 /* 위젯 목업 */
 .widget { background:linear-gradient(160deg,#1e2440,#171b30); border:1px solid rgba(140,155,255,.22); border-radius:22px;
@@ -56,7 +61,7 @@ body { font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Segoe
 .temp .wrap { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; padding:26px 20px; }
 .tchip { display:flex; gap:12px; align-items:flex-start; }
 .tchip .ic { width:34px; height:34px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:16px; flex:none; }
-.tchip.cold .ic { background:rgba(229,83,75,.16); } .tchip.focus .ic { background:rgba(52,168,83,.16); } .tchip.hot .ic { background:rgba(249,171,0,.16); }
+.tchip.cold .ic { background:rgba(120,140,235,.14); color:#9fb0ff; } .tchip.focus .ic { background:rgba(52,168,83,.16); color:#7ee2a0; } .tchip.hot .ic { background:rgba(249,171,0,.16); color:#ffd27a; }
 .tchip .t { font-size:13.5px; font-weight:700; margin-bottom:3px; }
 .tchip .d { font-size:12px; color:#99a0bb; line-height:1.55; }
 
@@ -70,7 +75,9 @@ p.slead { font-size:15px; line-height:1.8; color:var(--tx2); max-width:62ch; }
 .feat { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:16px; margin-top:30px; }
 .fcard { background:var(--card); border:1px solid var(--line); border-radius:16px; padding:22px; }
 .fcard .fi { width:38px; height:38px; border-radius:11px; background:linear-gradient(135deg,#eef0fd,#f3ecfa);
-  display:flex; align-items:center; justify-content:center; font-size:18px; margin-bottom:13px; }
+  display:flex; align-items:center; justify-content:center; color:var(--ind); margin-bottom:13px; }
+.lcard .li { width:34px; height:34px; border-radius:10px; background:linear-gradient(135deg,#eef0fd,#f3ecfa);
+  display:flex; align-items:center; justify-content:center; color:var(--ind); flex:none; }
 .fcard h3 { font-size:15.5px; font-weight:700; margin-bottom:7px; letter-spacing:-.3px; }
 .fcard p { font-size:13.5px; color:var(--tx2); line-height:1.7; }
 
@@ -120,6 +127,10 @@ footer a { color:#7c8bd9; text-decoration:none; }
         <a class="btn primary" href="strategies.html">전략 가이드 보기</a>
         <a class="btn ghost" href="AGITQ-introduction.html">매매기법 소개</a>
       </div>
+      <div class="store-row">
+        <a class="store-badge" href="https://apps.apple.com/kr/app/id6757210926"><img src="assets/badges/appstore-ko.svg" alt="App Store에서 다운로드"></a>
+        <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.fattail.agitq"><img src="assets/badges/googleplay-en.png" alt="Google Play에서 다운로드"></a>
+      </div>
     </div>
 
     <!-- 위젯 목업 — 앱 홈 위젯의 '오늘의 신호' -->
@@ -148,9 +159,9 @@ footer a { color:#7c8bd9; text-decoration:none; }
 <!-- ─────────── 시장 온도 ─────────── -->
 <div class="temp">
   <div class="wrap">
-    <div class="tchip cold"><div class="ic">🧊</div><div><div class="t">하락 — 장기선 아래</div><div class="d">레버리지에서 내려와 현금성 자산(SGOV)에서 다음 신호를 기다립니다.</div></div></div>
-    <div class="tchip focus"><div class="ic">🌱</div><div><div class="t">집중 — 장기선 ~ +5%</div><div class="d">추세가 살아 있는 본 구간. 전략의 수익 대부분이 여기서 만들어집니다.</div></div></div>
-    <div class="tchip hot"><div class="ic">🔥</div><div><div class="t">과열 — Envelope +5% 초과</div><div class="d">신규 자금은 S&amp;P ETF에 파킹하고 추격 매수를 멈춥니다.</div></div></div>
+    <div class="tchip cold"><div class="ic"><svg viewBox="0 0 24 24"><polyline points="3 7 9 13 13 9 21 17"/><polyline points="21 11 21 17 15 17"/></svg></div><div><div class="t">하락 — 장기선 아래</div><div class="d">레버리지에서 내려와 현금성 자산(SGOV)에서 다음 신호를 기다립니다.</div></div></div>
+    <div class="tchip focus"><div class="ic"><svg viewBox="0 0 24 24"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="15 7 21 7 21 13"/></svg></div><div><div class="t">집중 — 장기선 ~ +5%</div><div class="d">추세가 살아 있는 본 구간. 전략의 수익 대부분이 여기서 만들어집니다.</div></div></div>
+    <div class="tchip hot"><div class="ic"><svg viewBox="0 0 24 24"><path d="M10 14.5V5a2 2 0 1 1 4 0v9.5a4 4 0 1 1-4 0Z"/><circle cx="12" cy="18" r="1.4" fill="currentColor" stroke="none"/></svg></div><div><div class="t">과열 — Envelope +5% 초과</div><div class="d">신규 자금은 S&amp;P ETF에 파킹하고 추격 매수를 멈춥니다.</div></div></div>
   </div>
 </div>
 
@@ -162,12 +173,12 @@ footer a { color:#7c8bd9; text-decoration:none; }
     <p class="slead">이 앱이 하는 일은 단순합니다 — 정해진 규칙을 매일 대신 계산하고, 신호가 바뀌는 순간만 알려주는 것.
       나머지 시간은 시장을 잊고 지내도 됩니다.</p>
     <div class="feat">
-      <div class="fcard"><div class="fi">🧭</div><h3>7가지 검증된 전략</h3><p>원본 200일선부터 QQQ 3/161, 하이브리드, 점수 기반, 눈덩이까지 — 커뮤니티 원글과 백테스트로 다듬어진 전략을 골라 씁니다.</p></div>
-      <div class="fcard"><div class="fi">🔔</div><h3>시그널 전환 알림</h3><p>골든·데드 크로스, 과열 진입·해제 등 포지션이 바뀌어야 하는 순간에만 알림이 옵니다. 신호 확인일(0/2/3일)도 선택할 수 있어요.</p></div>
-      <div class="fcard"><div class="fi">☀️</div><h3>매일 아침 시황 브리핑</h3><p>아침 9시, 전날 장 마감 기준 신호 상태와 시황을 요약해 알려드립니다. 출근길 한 번이면 오늘 할 일이 정해집니다.</p></div>
-      <div class="fcard"><div class="fi">📱</div><h3>홈 화면 위젯</h3><p>앱을 열지 않아도 오늘의 신호·시장 온도·이격이 홈 화면에 떠 있습니다. 커스텀 종목 위젯도 지원합니다.</p></div>
-      <div class="fcard"><div class="fi">🧪</div><h3>백테스트</h3><p>내 설정(전략·확인일·Envelope·익절 방식) 그대로 과거 데이터에 돌려봅니다. TQQQ·SPYM·SGOV 회전까지 반영한 결과를 눈으로 확인하세요.</p></div>
-      <div class="fcard"><div class="fi">🎓</div><h3>익절 마일스톤 · 커스텀</h3><p>+10/+25/+50% 부분 익절과 눈덩이 '졸업'까지 마일스톤 알림으로 관리하고, 파라미터를 내 스타일로 조정할 수 있습니다.</p></div>
+      <div class="fcard"><div class="fi"><svg viewBox="0 0 24 24"><path d="M12 3 21 8 12 13 3 8Z"/><path d="M3 12l9 5 9-5"/><path d="M3 16l9 5 9-5"/></svg></div><h3>7가지 검증된 전략</h3><p>원본 200일선부터 QQQ 3/161, 하이브리드, 점수 기반, 눈덩이까지 — 커뮤니티 원글과 백테스트로 다듬어진 전략을 골라 씁니다.</p></div>
+      <div class="fcard"><div class="fi"><svg viewBox="0 0 24 24"><path d="M18 16H6c1.2-1.4 1.8-2.7 1.8-5.1A4.2 4.2 0 0 1 12 6.6a4.2 4.2 0 0 1 4.2 4.3c0 2.4.6 3.7 1.8 5.1Z"/><path d="M10.3 19a1.8 1.8 0 0 0 3.4 0"/><path d="M12 4.4V6"/></svg></div><h3>시그널 전환 알림</h3><p>골든·데드 크로스, 과열 진입·해제 등 포지션이 바뀌어야 하는 순간에만 알림이 옵니다. 신호 확인일(0/2/3일)도 선택할 수 있어요.</p></div>
+      <div class="fcard"><div class="fi"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2.8v1.8M12 19.4v1.8M2.8 12h1.8M19.4 12h1.8M5.2 5.2l1.3 1.3M17.5 17.5l1.3 1.3M18.8 5.2l-1.3 1.3M6.5 17.5l-1.3 1.3"/></svg></div><h3>매일 아침 시황 브리핑</h3><p>아침 9시, 전날 장 마감 기준 신호 상태와 시황을 요약해 알려드립니다. 출근길 한 번이면 오늘 할 일이 정해집니다.</p></div>
+      <div class="fcard"><div class="fi"><svg viewBox="0 0 24 24"><rect x="7" y="3" width="10" height="18" rx="2.4"/><path d="M10.5 6h3"/><rect x="9.5" y="10" width="5" height="3.6" rx="0.9"/></svg></div><h3>홈 화면 위젯</h3><p>앱을 열지 않아도 오늘의 신호·시장 온도·이격이 홈 화면에 떠 있습니다. 커스텀 종목 위젯도 지원합니다.</p></div>
+      <div class="fcard"><div class="fi"><svg viewBox="0 0 24 24"><path d="M9.5 3h5M10.5 3v5.2L5.6 17.5a2 2 0 0 0 1.8 3h9.2a2 2 0 0 0 1.8-3L13.5 8.2V3"/><path d="M7.6 14.5h8.8"/></svg></div><h3>백테스트</h3><p>내 설정(전략·확인일·Envelope·익절 방식) 그대로 과거 데이터에 돌려봅니다. TQQQ·SPYM·SGOV 회전까지 반영한 결과를 눈으로 확인하세요.</p></div>
+      <div class="fcard"><div class="fi"><svg viewBox="0 0 24 24"><path d="M6 21V4"/><path d="M6 4h11l-2.5 3.5L17 11H6"/></svg></div><h3>익절 마일스톤 · 커스텀</h3><p>+10/+25/+50% 부분 익절과 눈덩이 '졸업'까지 마일스톤 알림으로 관리하고, 파라미터를 내 스타일로 조정할 수 있습니다.</p></div>
     </div>
   </div>
 </section>
@@ -211,9 +222,9 @@ footer a { color:#7c8bd9; text-decoration:none; }
 <section class="sec" style="padding-top:0">
   <div class="wrap">
     <div class="links">
-      <a class="lcard" href="AGITQ-introduction.html"><span>📈</span><span><div class="t">아기티큐 매매기법</div><div class="d">200일선 자산배분 전략 소개</div></span></a>
-      <a class="lcard" href="strategies.html"><span>🧭</span><span><div class="t">전략 가이드</div><div class="d">7가지 전략 규칙·근거·차트</div></span></a>
-      <a class="lcard" href="privacy-policy.html"><span>🔒</span><span><div class="t">개인정보 보호 정책</div><div class="d">앱의 개인정보 처리 방침</div></span></a>
+      <a class="lcard" href="AGITQ-introduction.html"><span class="li"><svg viewBox="0 0 24 24"><path d="M12 6c-1.8-1.6-4.4-2-8-2v14c3.6 0 6.2.4 8 2 1.8-1.6 4.4-2 8-2V4c-3.6 0-6.2.4-8 2Z"/><path d="M12 6v14"/></svg></span><span><div class="t">아기티큐 매매기법</div><div class="d">200일선 자산배분 전략 소개</div></span></a>
+      <a class="lcard" href="strategies.html"><span class="li"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5 13.6 13.6 8.5 15.5l1.9-5.1Z"/></svg></span><span><div class="t">전략 가이드</div><div class="d">7가지 전략 규칙·근거·차트</div></span></a>
+      <a class="lcard" href="privacy-policy.html"><span class="li"><svg viewBox="0 0 24 24"><rect x="5.5" y="10.5" width="13" height="9" rx="2"/><path d="M8.5 10.5V8a3.5 3.5 0 0 1 7 0v2.5"/></svg></span><span><div class="t">개인정보 보호 정책</div><div class="d">앱의 개인정보 처리 방침</div></span></a>
     </div>
     <footer>
       <p class="disc">본 사이트와 앱의 모든 콘텐츠는 정보 제공 목적이며 투자 자문이 아닙니다. 백테스트와 차트는 과거 데이터 기준으로
