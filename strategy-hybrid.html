@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>하이브리드 3,185/161 — AGITQ</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+  color:#333; background:linear-gradient(135deg,#f5f7fa 0%,#e4e8eb 100%); min-height:100vh; padding:24px 16px; }
+.wrap { max-width:860px; margin:0 auto; }
+.card { background:#fff; border-radius:16px; box-shadow:0 4px 18px rgba(60,70,110,0.08); padding:28px; margin-bottom:20px; }
+.hero { background:linear-gradient(135deg,#667eea 0%,#764ba2 100%); color:#fff; border-radius:16px;
+  padding:34px 28px; margin-bottom:20px; }
+.hero h1 { font-size:26px; margin-bottom:8px; }
+.hero p { opacity:.92; font-size:14.5px; line-height:1.6; }
+.crumb { font-size:13px; margin-bottom:14px; }
+.crumb a { color:#667eea; text-decoration:none; }
+.badge { display:inline-block; background:rgba(255,255,255,.22); border:1px solid rgba(255,255,255,.4);
+  border-radius:999px; padding:3px 12px; font-size:12px; margin-bottom:12px; }
+h2 { font-size:19px; margin:2px 0 14px; color:#2b2f3a; border-bottom:3px solid #667eea; display:inline-block; padding-bottom:4px; }
+p.lead { font-size:14.5px; line-height:1.75; color:#444; }
+table.rules { width:100%; border-collapse:collapse; font-size:14px; margin-top:6px; }
+table.rules th { text-align:left; width:120px; color:#667eea; font-weight:600; padding:10px 10px 10px 0;
+  border-bottom:1px solid #eef0f5; vertical-align:top; white-space:nowrap; }
+table.rules td { padding:10px 0; border-bottom:1px solid #eef0f5; line-height:1.65; color:#444; }
+img.chart { width:100%; border-radius:10px; border:1px solid #eef0f5; margin:10px 0 4px; }
+.cap { font-size:12px; color:#8a8f9c; margin-bottom:10px; }
+.statrow { display:flex; gap:12px; margin:14px 0 4px; flex-wrap:wrap; }
+.stat { flex:1; min-width:140px; background:#f7f8fc; border-radius:12px; padding:14px; text-align:center; }
+.stat .v { font-size:21px; font-weight:700; color:#667eea; }
+.stat .k { font-size:12px; color:#888; margin-top:3px; }
+.grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:14px; }
+a.scard { display:block; background:#fff; border:1px solid #eef0f5; border-radius:14px; padding:18px;
+  text-decoration:none; color:inherit; transition:box-shadow .15s, transform .15s; }
+a.scard:hover { box-shadow:0 6px 20px rgba(102,126,234,.18); transform:translateY(-2px); }
+a.scard .b { display:inline-block; background:#eef0fb; color:#5666c9; border-radius:999px; padding:2px 10px; font-size:11px; margin-bottom:8px; }
+a.scard .t { font-weight:700; font-size:15.5px; margin-bottom:5px; }
+a.scard .d { font-size:12.5px; color:#777; line-height:1.5; margin-bottom:8px; }
+a.scard .m { font-size:11.5px; color:#999; }
+.faq dt { font-weight:600; font-size:14px; margin-top:12px; color:#2b2f3a; }
+.faq dd { font-size:13.5px; color:#555; line-height:1.65; margin:4px 0 0; }
+.note { background:#fdf7e8; border:1px solid #f2e2b8; border-radius:12px; padding:14px 16px; font-size:13px;
+  color:#7a5d1e; line-height:1.65; margin-top:14px; }
+.src { font-size:13px; line-height:1.9; }
+.src a { color:#667eea; text-decoration:none; }
+.cta { display:block; text-align:center; background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);
+  color:#fff; border-radius:12px; padding:15px; font-weight:700; text-decoration:none; font-size:15px; margin-top:6px; }
+.foot { text-align:center; font-size:12px; color:#9aa0ab; padding:18px 0 6px; line-height:1.7; }
+.lang { float:right; font-size:12.5px; } .lang a { color:rgba(255,255,255,.9); text-decoration:underline; }
+@media (max-width:520px){ .card{padding:20px} .hero{padding:26px 20px} }
+</style>
+</head>
+<body><div class="wrap">
+
+<div class="hero">
+<div class="lang"><a href="strategy-hybrid-en.html">English</a></div>
+<div class="crumb"><a href="strategies.html" style="color:rgba(255,255,255,.85)">← 전략 가이드</a></div>
+<span class="badge">고승률</span>
+<h1>하이브리드 3,185/161</h1>
+<p>매수선(185)과 매도선(161)을 분리한 비대칭 전략 — "161을 다시 넘었다고 사지 마라"가 핵심입니다.</p>
+</div>
+<div class="card"><h2>작동 원리</h2><p class="lead">QQQ 3일선이 185일선을 넘을 때만 매수하고, 161일선을 깨야만 매도하는 비대칭 구조입니다. 원저자의
+분석에서 "161선을 회복했지만 185선을 못 넘는" 재회복 이벤트는 역사적으로 전부 손실이어서, 매수 문턱을 185로
+올려 가짜 신호를 걸러냅니다. 앱은 여기에 역배열(161선이 185선 위) 구간의 예외 진입 상태를 더한 상태머신으로
+구현되어 있습니다: 역배열에서 3일선이 두 기준선 사이에 들어오면 예외 보유로 진입하고, 예외 보유 중에는 185선
+이탈 시 매도, 161선 상향 돌파 시 일반 보유로 전환합니다. 당일 재진입은 금지됩니다.</p><div class="statrow">
+<div class="stat"><div class="v">39.6%</div><div class="k">10년 CAGR (시뮬)</div></div>
+<div class="stat"><div class="v">-48.1%</div><div class="k">최대 낙폭 (시뮬)</div></div>
+</div></div>
+<div class="card"><h2>규칙</h2><table class="rules"><tr><th>매수</th><td>QQQ 3일선이 185일선 상향 돌파 → 보유</td></tr><tr><th>예외 진입</th><td>역배열(161선>185선)에서 3일선이 두 선 사이 → 예외 보유</td></tr><tr><th>매도</th><td>보유 중 3일선<161선 / 예외 보유 중 3일선<185선</td></tr><tr><th>전환</th><td>예외 보유 중 3일선이 161선 상향 돌파 → 일반 보유</td></tr><tr><th>기타</th><td>당일 재진입 금지</td></tr></table></div>
+<div class="card"><h2>실데이터 차트</h2>
+<img class="chart" src="assets/strategies/hybrid_price.png" alt="하이브리드 3,185/161 signal chart"><div class="cap">최근 5년 · 초록 음영 = 보유 구간</div>
+<img class="chart" src="assets/strategies/hybrid_equity.png" alt="하이브리드 3,185/161 equity chart"><div class="cap">최근 10년 · $1 성장 시뮬레이션 (세금·수수료 미반영)</div>
+</div>
+<div class="card"><h2>자주 묻는 질문</h2><dl class="faq"><dt>매수선과 매도선을 왜 분리하나요?</dt><dd>원저자 백테스트에서 "3일선이 161선을 넘었다고 바로 사는" 케이스 중 185선까지 못 가는 실패 이벤트는 7회 전부 손실(평균 −7.6%)이었습니다. 매수만 문턱을 높이면 이런 구간을 피하면서 이탈은 빠르게 가져갑니다.</dd><dt>원글의 5% 밴드 매수 변형도 있나요?</dt><dd>원글에는 Envelope 밴드를 활용한 공격적 변형이 소개돼 있지만, 앱은 예외 배열 상태머신을 채택한 최신 구현을 기준으로 합니다.</dd></dl></div>
+<div class="card"><h2>출처</h2><div class="src">• <a href='https://www.fmkorea.com/9592587295' target='_blank' rel='noopener'>3,185/161 정리글 (원저자)</a><br></div>
+<div class="note">본 페이지의 백테스트 차트는 야후 파이낸스 일봉(최근 10년, 배당 조정 종가)으로 앱의 규칙을 재현한
+참고 자료입니다. 세금·수수료·호가 슬리피지를 반영하지 않았고, 과거 성과는 미래 수익을 보장하지 않습니다.
+규칙 서술과 실제 신호는 항상 앱의 최신 구현을 기준으로 합니다. 본 콘텐츠는 투자 자문이 아니며, 투자 판단과
+책임은 이용자 본인에게 있습니다.</div>
+<a class="cta" href="index.html">앱에서 이 전략 켜기 → 설정 · 전략 선택</a></div>
+<div class="foot">© 2026 FatTail Labs. All rights reserved.<br>문의/Contact: fattaillabs.ceo@gmail.com</div>
+</div></body></html>

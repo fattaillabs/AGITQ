@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TQQQ 5,218 — AGITQ</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+  color:#333; background:linear-gradient(135deg,#f5f7fa 0%,#e4e8eb 100%); min-height:100vh; padding:24px 16px; }
+.wrap { max-width:860px; margin:0 auto; }
+.card { background:#fff; border-radius:16px; box-shadow:0 4px 18px rgba(60,70,110,0.08); padding:28px; margin-bottom:20px; }
+.hero { background:linear-gradient(135deg,#667eea 0%,#764ba2 100%); color:#fff; border-radius:16px;
+  padding:34px 28px; margin-bottom:20px; }
+.hero h1 { font-size:26px; margin-bottom:8px; }
+.hero p { opacity:.92; font-size:14.5px; line-height:1.6; }
+.crumb { font-size:13px; margin-bottom:14px; }
+.crumb a { color:#667eea; text-decoration:none; }
+.badge { display:inline-block; background:rgba(255,255,255,.22); border:1px solid rgba(255,255,255,.4);
+  border-radius:999px; padding:3px 12px; font-size:12px; margin-bottom:12px; }
+h2 { font-size:19px; margin:2px 0 14px; color:#2b2f3a; border-bottom:3px solid #667eea; display:inline-block; padding-bottom:4px; }
+p.lead { font-size:14.5px; line-height:1.75; color:#444; }
+table.rules { width:100%; border-collapse:collapse; font-size:14px; margin-top:6px; }
+table.rules th { text-align:left; width:120px; color:#667eea; font-weight:600; padding:10px 10px 10px 0;
+  border-bottom:1px solid #eef0f5; vertical-align:top; white-space:nowrap; }
+table.rules td { padding:10px 0; border-bottom:1px solid #eef0f5; line-height:1.65; color:#444; }
+img.chart { width:100%; border-radius:10px; border:1px solid #eef0f5; margin:10px 0 4px; }
+.cap { font-size:12px; color:#8a8f9c; margin-bottom:10px; }
+.statrow { display:flex; gap:12px; margin:14px 0 4px; flex-wrap:wrap; }
+.stat { flex:1; min-width:140px; background:#f7f8fc; border-radius:12px; padding:14px; text-align:center; }
+.stat .v { font-size:21px; font-weight:700; color:#667eea; }
+.stat .k { font-size:12px; color:#888; margin-top:3px; }
+.grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:14px; }
+a.scard { display:block; background:#fff; border:1px solid #eef0f5; border-radius:14px; padding:18px;
+  text-decoration:none; color:inherit; transition:box-shadow .15s, transform .15s; }
+a.scard:hover { box-shadow:0 6px 20px rgba(102,126,234,.18); transform:translateY(-2px); }
+a.scard .b { display:inline-block; background:#eef0fb; color:#5666c9; border-radius:999px; padding:2px 10px; font-size:11px; margin-bottom:8px; }
+a.scard .t { font-weight:700; font-size:15.5px; margin-bottom:5px; }
+a.scard .d { font-size:12.5px; color:#777; line-height:1.5; margin-bottom:8px; }
+a.scard .m { font-size:11.5px; color:#999; }
+.faq dt { font-weight:600; font-size:14px; margin-top:12px; color:#2b2f3a; }
+.faq dd { font-size:13.5px; color:#555; line-height:1.65; margin:4px 0 0; }
+.note { background:#fdf7e8; border:1px solid #f2e2b8; border-radius:12px; padding:14px 16px; font-size:13px;
+  color:#7a5d1e; line-height:1.65; margin-top:14px; }
+.src { font-size:13px; line-height:1.9; }
+.src a { color:#667eea; text-decoration:none; }
+.cta { display:block; text-align:center; background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);
+  color:#fff; border-radius:12px; padding:15px; font-weight:700; text-decoration:none; font-size:15px; margin-top:6px; }
+.foot { text-align:center; font-size:12px; color:#9aa0ab; padding:18px 0 6px; line-height:1.7; }
+.lang { float:right; font-size:12.5px; } .lang a { color:rgba(255,255,255,.9); text-decoration:underline; }
+@media (max-width:520px){ .card{padding:20px} .hero{padding:26px 20px} }
+</style>
+</head>
+<body><div class="wrap">
+
+<div class="hero">
+<div class="lang"><a href="strategy-tqqq5218-en.html">English</a></div>
+<div class="crumb"><a href="strategies.html" style="color:rgba(255,255,255,.85)">← 전략 가이드</a></div>
+<span class="badge">거래 적음</span>
+<h1>TQQQ 5,218</h1>
+<p>TQQQ 자체 5일선×218일선 — 거래 횟수를 줄이고 추세를 길게 타는 변형입니다.</p>
+</div>
+<div class="card"><h2>작동 원리</h2><p class="lead">원본 1/200에서 신호선을 5일선으로, 기준선을 218일선으로 늘려 교차 횟수를 줄인 구성입니다.
+최적화 시리즈 2편은 수수료까지 반영하면 "n1은 짧게 고정하고 n2는 210~230 대역에서 자유롭게"를 권고했는데,
+이 전략은 그 대역에서 TQQQ 자체 신호로 동작하는 앱 변형입니다. 매매가 뜸해 실행 부담이 가장 적습니다.</p><div class="statrow">
+<div class="stat"><div class="v">38.3%</div><div class="k">10년 CAGR (시뮬)</div></div>
+<div class="stat"><div class="v">-52.7%</div><div class="k">최대 낙폭 (시뮬)</div></div>
+</div></div>
+<div class="card"><h2>규칙</h2><table class="rules"><tr><th>신호</th><td>TQQQ 5일선 vs 218일선</td></tr><tr><th>매수</th><td>5일선이 218일선 상향 돌파 → TQQQ 매수</td></tr><tr><th>매도</th><td>5일선이 218일선 하향 이탈 → TQQQ 전량 매도</td></tr><tr><th>근거</th><td>최적화 2편: 수수료 반영 시 기준선 210~230 대역 유효 — 그 대역의 TQQQ 신호 변형</td></tr></table></div>
+<div class="card"><h2>실데이터 차트</h2>
+<img class="chart" src="assets/strategies/tqqq5218_price.png" alt="TQQQ 5,218 signal chart"><div class="cap">최근 5년 · 초록 음영 = 보유 구간</div>
+<img class="chart" src="assets/strategies/tqqq5218_equity.png" alt="TQQQ 5,218 equity chart"><div class="cap">최근 10년 · $1 성장 시뮬레이션 (세금·수수료 미반영)</div>
+</div>
+<div class="card"><h2>자주 묻는 질문</h2><dl class="faq"><dt>원본 1/200과 뭐가 다른가요?</dt><dd>신호선이 5일선이라 하루짜리 튐에 반응하지 않고, 기준선이 218일로 살짝 길어 교차가 더 드뭅니다. 그만큼 진입·이탈이 늦지만 매매 횟수와 수수료·세금 이벤트가 줄어듭니다.</dd></dl></div>
+<div class="card"><h2>출처</h2><div class="src">• <a href='https://www.fmkorea.com/7398740367' target='_blank' rel='noopener'>최적화 2편 — 수수료 반영 스윕</a><br></div>
+<div class="note">본 페이지의 백테스트 차트는 야후 파이낸스 일봉(최근 10년, 배당 조정 종가)으로 앱의 규칙을 재현한
+참고 자료입니다. 세금·수수료·호가 슬리피지를 반영하지 않았고, 과거 성과는 미래 수익을 보장하지 않습니다.
+규칙 서술과 실제 신호는 항상 앱의 최신 구현을 기준으로 합니다. 본 콘텐츠는 투자 자문이 아니며, 투자 판단과
+책임은 이용자 본인에게 있습니다.</div>
+<a class="cta" href="index.html">앱에서 이 전략 켜기 → 설정 · 전략 선택</a></div>
+<div class="foot">© 2026 FatTail Labs. All rights reserved.<br>문의/Contact: fattaillabs.ceo@gmail.com</div>
+</div></body></html>

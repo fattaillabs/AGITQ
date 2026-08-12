@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>김째아빠 (점수 기반) — AGITQ</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+  color:#333; background:linear-gradient(135deg,#f5f7fa 0%,#e4e8eb 100%); min-height:100vh; padding:24px 16px; }
+.wrap { max-width:860px; margin:0 auto; }
+.card { background:#fff; border-radius:16px; box-shadow:0 4px 18px rgba(60,70,110,0.08); padding:28px; margin-bottom:20px; }
+.hero { background:linear-gradient(135deg,#667eea 0%,#764ba2 100%); color:#fff; border-radius:16px;
+  padding:34px 28px; margin-bottom:20px; }
+.hero h1 { font-size:26px; margin-bottom:8px; }
+.hero p { opacity:.92; font-size:14.5px; line-height:1.6; }
+.crumb { font-size:13px; margin-bottom:14px; }
+.crumb a { color:#667eea; text-decoration:none; }
+.badge { display:inline-block; background:rgba(255,255,255,.22); border:1px solid rgba(255,255,255,.4);
+  border-radius:999px; padding:3px 12px; font-size:12px; margin-bottom:12px; }
+h2 { font-size:19px; margin:2px 0 14px; color:#2b2f3a; border-bottom:3px solid #667eea; display:inline-block; padding-bottom:4px; }
+p.lead { font-size:14.5px; line-height:1.75; color:#444; }
+table.rules { width:100%; border-collapse:collapse; font-size:14px; margin-top:6px; }
+table.rules th { text-align:left; width:120px; color:#667eea; font-weight:600; padding:10px 10px 10px 0;
+  border-bottom:1px solid #eef0f5; vertical-align:top; white-space:nowrap; }
+table.rules td { padding:10px 0; border-bottom:1px solid #eef0f5; line-height:1.65; color:#444; }
+img.chart { width:100%; border-radius:10px; border:1px solid #eef0f5; margin:10px 0 4px; }
+.cap { font-size:12px; color:#8a8f9c; margin-bottom:10px; }
+.statrow { display:flex; gap:12px; margin:14px 0 4px; flex-wrap:wrap; }
+.stat { flex:1; min-width:140px; background:#f7f8fc; border-radius:12px; padding:14px; text-align:center; }
+.stat .v { font-size:21px; font-weight:700; color:#667eea; }
+.stat .k { font-size:12px; color:#888; margin-top:3px; }
+.grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:14px; }
+a.scard { display:block; background:#fff; border:1px solid #eef0f5; border-radius:14px; padding:18px;
+  text-decoration:none; color:inherit; transition:box-shadow .15s, transform .15s; }
+a.scard:hover { box-shadow:0 6px 20px rgba(102,126,234,.18); transform:translateY(-2px); }
+a.scard .b { display:inline-block; background:#eef0fb; color:#5666c9; border-radius:999px; padding:2px 10px; font-size:11px; margin-bottom:8px; }
+a.scard .t { font-weight:700; font-size:15.5px; margin-bottom:5px; }
+a.scard .d { font-size:12.5px; color:#777; line-height:1.5; margin-bottom:8px; }
+a.scard .m { font-size:11.5px; color:#999; }
+.faq dt { font-weight:600; font-size:14px; margin-top:12px; color:#2b2f3a; }
+.faq dd { font-size:13.5px; color:#555; line-height:1.65; margin:4px 0 0; }
+.note { background:#fdf7e8; border:1px solid #f2e2b8; border-radius:12px; padding:14px 16px; font-size:13px;
+  color:#7a5d1e; line-height:1.65; margin-top:14px; }
+.src { font-size:13px; line-height:1.9; }
+.src a { color:#667eea; text-decoration:none; }
+.cta { display:block; text-align:center; background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);
+  color:#fff; border-radius:12px; padding:15px; font-weight:700; text-decoration:none; font-size:15px; margin-top:6px; }
+.foot { text-align:center; font-size:12px; color:#9aa0ab; padding:18px 0 6px; line-height:1.7; }
+.lang { float:right; font-size:12.5px; } .lang a { color:rgba(255,255,255,.9); text-decoration:underline; }
+@media (max-width:520px){ .card{padding:20px} .hero{padding:26px 20px} }
+</style>
+</head>
+<body><div class="wrap">
+
+<div class="hero">
+<div class="lang"><a href="strategy-kimjjae-en.html">English</a></div>
+<div class="crumb"><a href="strategies.html" style="color:rgba(255,255,255,.85)">← 전략 가이드</a></div>
+<span class="badge">점수 기반</span>
+<h1>김째아빠 (점수 기반)</h1>
+<p>두 추세 신호를 점수로 합산해 TQQQ/QLD/SGOV 3단 배분 — 변동성·이격도 게이트가 안전핀입니다.</p>
+</div>
+<div class="card"><h2>작동 원리</h2><p class="lead">점수 = [QQQ 3일선>161일선: +1] + [TQQQ>200일선: +1]. 2점이면 TQQQ, 1점이면 QLD, 0점이면 SGOV로
+전량 배분하는 3단 스위치입니다. 여기에 두 개의 안전핀이 더해집니다: ①TQQQ 20일 변동성이 6.2 이상이면 점수와
+무관하게 전량 SGOV ②이격도(TQQQ/200일선)가 151% 이상이면 과열 매도하고, 118% 이하로 식은 뒤에만 재진입합니다
+("현금은 추격하지 않는다"). 원글의 초안(QQQ 변동성 2% 게이트)을 앱이 개선한 최신판 기준입니다.</p><div class="statrow">
+<div class="stat"><div class="v">61.4%</div><div class="k">10년 CAGR (시뮬)</div></div>
+<div class="stat"><div class="v">-41.2%</div><div class="k">최대 낙폭 (시뮬)</div></div>
+</div></div>
+<div class="card"><h2>규칙</h2><table class="rules"><tr><th>점수</th><td>[QQQ 3>161 : +1] + [TQQQ>200일선 : +1]</td></tr><tr><th>배분</th><td>2점=TQQQ / 1점=QLD / 0점=SGOV (전량)</td></tr><tr><th>변동성 게이트</th><td>TQQQ 20일 변동성 ≥ 6.2 → 전량 SGOV</td></tr><tr><th>이격도 게이트</th><td>TQQQ가 200일선의 151% 이상 → 매도, 118% 이하 냉각 후에만 재진입</td></tr></table></div>
+<div class="card"><h2>실데이터 차트</h2>
+<img class="chart" src="assets/strategies/kimjjae_price.png" alt="김째아빠 (점수 기반) signal chart"><div class="cap">최근 5년 · 초록 음영 = 보유 구간</div>
+<img class="chart" src="assets/strategies/kimjjae_equity.png" alt="김째아빠 (점수 기반) equity chart"><div class="cap">최근 10년 · $1 성장 시뮬레이션 (세금·수수료 미반영)</div>
+</div>
+<div class="card"><h2>자주 묻는 질문</h2><dl class="faq"><dt>반쪽 신호(1점)에 QLD를 쓰는 이유는?</dt><dd>두 신호가 엇갈린 애매한 구간에서 레버리지를 절반으로 줄여 노출을 유지하는 절충입니다. 전부 나가지도, 3배를 다 지지도 않습니다.</dd><dt>원글과 값이 다른데요?</dt><dd>원글 초안은 QQQ 20일 변동성 2% 게이트였고, 이격도 게이트가 없었습니다. 앱은 이후 개선된 값(TQQQ 6.2, 이격도 151/118)을 사용합니다 — 페이지 서술과 앱은 항상 최신 구현 기준입니다.</dd></dl></div>
+<div class="card"><h2>출처</h2><div class="src">• <a href='https://www.fmkorea.com/9430067016' target='_blank' rel='noopener'>원글 — TQQQ 200일선 개선 아이디어</a><br></div>
+<div class="note">본 페이지의 백테스트 차트는 야후 파이낸스 일봉(최근 10년, 배당 조정 종가)으로 앱의 규칙을 재현한
+참고 자료입니다. 세금·수수료·호가 슬리피지를 반영하지 않았고, 과거 성과는 미래 수익을 보장하지 않습니다.
+규칙 서술과 실제 신호는 항상 앱의 최신 구현을 기준으로 합니다. 본 콘텐츠는 투자 자문이 아니며, 투자 판단과
+책임은 이용자 본인에게 있습니다.</div>
+<a class="cta" href="index.html">앱에서 이 전략 켜기 → 설정 · 전략 선택</a></div>
+<div class="foot">© 2026 FatTail Labs. All rights reserved.<br>문의/Contact: fattaillabs.ceo@gmail.com</div>
+</div></body></html>

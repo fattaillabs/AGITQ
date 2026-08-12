@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>전략 가이드 — AGITQ</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+  color:#333; background:linear-gradient(135deg,#f5f7fa 0%,#e4e8eb 100%); min-height:100vh; padding:24px 16px; }
+.wrap { max-width:860px; margin:0 auto; }
+.card { background:#fff; border-radius:16px; box-shadow:0 4px 18px rgba(60,70,110,0.08); padding:28px; margin-bottom:20px; }
+.hero { background:linear-gradient(135deg,#667eea 0%,#764ba2 100%); color:#fff; border-radius:16px;
+  padding:34px 28px; margin-bottom:20px; }
+.hero h1 { font-size:26px; margin-bottom:8px; }
+.hero p { opacity:.92; font-size:14.5px; line-height:1.6; }
+.crumb { font-size:13px; margin-bottom:14px; }
+.crumb a { color:#667eea; text-decoration:none; }
+.badge { display:inline-block; background:rgba(255,255,255,.22); border:1px solid rgba(255,255,255,.4);
+  border-radius:999px; padding:3px 12px; font-size:12px; margin-bottom:12px; }
+h2 { font-size:19px; margin:2px 0 14px; color:#2b2f3a; border-bottom:3px solid #667eea; display:inline-block; padding-bottom:4px; }
+p.lead { font-size:14.5px; line-height:1.75; color:#444; }
+table.rules { width:100%; border-collapse:collapse; font-size:14px; margin-top:6px; }
+table.rules th { text-align:left; width:120px; color:#667eea; font-weight:600; padding:10px 10px 10px 0;
+  border-bottom:1px solid #eef0f5; vertical-align:top; white-space:nowrap; }
+table.rules td { padding:10px 0; border-bottom:1px solid #eef0f5; line-height:1.65; color:#444; }
+img.chart { width:100%; border-radius:10px; border:1px solid #eef0f5; margin:10px 0 4px; }
+.cap { font-size:12px; color:#8a8f9c; margin-bottom:10px; }
+.statrow { display:flex; gap:12px; margin:14px 0 4px; flex-wrap:wrap; }
+.stat { flex:1; min-width:140px; background:#f7f8fc; border-radius:12px; padding:14px; text-align:center; }
+.stat .v { font-size:21px; font-weight:700; color:#667eea; }
+.stat .k { font-size:12px; color:#888; margin-top:3px; }
+.grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:14px; }
+a.scard { display:block; background:#fff; border:1px solid #eef0f5; border-radius:14px; padding:18px;
+  text-decoration:none; color:inherit; transition:box-shadow .15s, transform .15s; }
+a.scard:hover { box-shadow:0 6px 20px rgba(102,126,234,.18); transform:translateY(-2px); }
+a.scard .b { display:inline-block; background:#eef0fb; color:#5666c9; border-radius:999px; padding:2px 10px; font-size:11px; margin-bottom:8px; }
+a.scard .t { font-weight:700; font-size:15.5px; margin-bottom:5px; }
+a.scard .d { font-size:12.5px; color:#777; line-height:1.5; margin-bottom:8px; }
+a.scard .m { font-size:11.5px; color:#999; }
+.faq dt { font-weight:600; font-size:14px; margin-top:12px; color:#2b2f3a; }
+.faq dd { font-size:13.5px; color:#555; line-height:1.65; margin:4px 0 0; }
+.note { background:#fdf7e8; border:1px solid #f2e2b8; border-radius:12px; padding:14px 16px; font-size:13px;
+  color:#7a5d1e; line-height:1.65; margin-top:14px; }
+.src { font-size:13px; line-height:1.9; }
+.src a { color:#667eea; text-decoration:none; }
+.cta { display:block; text-align:center; background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);
+  color:#fff; border-radius:12px; padding:15px; font-weight:700; text-decoration:none; font-size:15px; margin-top:6px; }
+.foot { text-align:center; font-size:12px; color:#9aa0ab; padding:18px 0 6px; line-height:1.7; }
+.lang { float:right; font-size:12.5px; } .lang a { color:rgba(255,255,255,.9); text-decoration:underline; }
+@media (max-width:520px){ .card{padding:20px} .hero{padding:26px 20px} }
+</style>
+</head>
+<body><div class="wrap">
+
+<div class="hero">
+<div class="lang"><a href="strategies-en.html">English</a></div>
+<div class="crumb"><a href="index.html" style="color:rgba(255,255,255,.85)">← 홈으로</a></div>
+<h1>전략 가이드</h1><p>아기티큐 플레이북의 7가지 전략 — 규칙·근거·실데이터 차트</p>
+</div>
+<div class="card"><p class="lead">앱이 제공하는 7개 전략을 실제 시장 데이터(최근 10년)로 재현해 정리했습니다. 카드를 눌러
+각 전략의 규칙과 출처, 차트를 확인하세요. 모든 서술은 앱의 최신 구현을 기준으로 합니다.</p></div>
+<div class="card"><h2>한눈에 비교</h2>
+<img class="chart" src="assets/strategies/hub_compare.png" alt="strategy comparison"></div>
+<div class="grid"><a class="scard" href="strategy-original.html"><span class="b">기본</span><div class="t">원본 200일선</div>
+<div class="d">앱 이름의 유래가 된 원조 전략. 기준은 단 하나 — TQQQ 자체의 200일선입니다.</div><div class="m">CAGR 32% · MDD -50%</div></a><a class="scard" href="strategy-qqq3161.html"><span class="b">휩쏘 감소</span><div class="t">QQQ 3,161</div>
+<div class="d">신호는 QQQ 3일선×161일선으로 보고, 매매는 TQQQ로 — 최적화 시리즈가 찾아낸 조합입니다.</div><div class="m">CAGR 45% · MDD -48%</div></a><a class="scard" href="strategy-qldisa.html"><span class="b">절세</span><div class="t">QLD ISA (2배)</div>
+<div class="d">같은 QQQ 3/161 신호로 2배 레버리지 QLD를 매매 — 절세 계좌(ISA)와 궁합이 좋은 순한 맛입니다.</div><div class="m">CAGR 32% · MDD -34%</div></a><a class="scard" href="strategy-tqqq5218.html"><span class="b">거래 적음</span><div class="t">TQQQ 5,218</div>
+<div class="d">TQQQ 자체 5일선×218일선 — 거래 횟수를 줄이고 추세를 길게 타는 변형입니다.</div><div class="m">CAGR 38% · MDD -53%</div></a><a class="scard" href="strategy-hybrid.html"><span class="b">고승률</span><div class="t">하이브리드 3,185/161</div>
+<div class="d">매수선(185)과 매도선(161)을 분리한 비대칭 전략 — "161을 다시 넘었다고 사지 마라"가 핵심입니다.</div><div class="m">CAGR 40% · MDD -48%</div></a><a class="scard" href="strategy-kimjjae.html"><span class="b">점수 기반</span><div class="t">김째아빠 (점수 기반)</div>
+<div class="d">두 추세 신호를 점수로 합산해 TQQQ/QLD/SGOV 3단 배분 — 변동성·이격도 게이트가 안전핀입니다.</div><div class="m">CAGR 61% · MDD -41%</div></a><a class="scard" href="strategy-snowball.html"><span class="b">눈덩이</span><div class="t">눈덩이 (5,220 + DIP)</div>
+<div class="d">5/220 추세 매매에 52주 고점 대비 낙폭 매수(DIP)를 결합 — 하락장을 매집 기회로 씁니다.</div><div class="m">CAGR 32% · MDD -54%</div></a></div>
+<div class="card" style="margin-top:20px"><h2>공통 규칙</h2><p class="lead">모든 전략 공통: 이동평균은 단순이평(SMA)·종가 기준입니다. 과열 판단은 장기선 대비 +5% Envelope,
+시장 온도는 하락(장기선 아래)/집중(장기선~+5%)/과열(+5% 초과)로 나눕니다. 매도 시 자금은 S&P ETF(기본 SPYM)·현금성
+채권(기본 SGOV)으로 회전하고, 신호 확인일(0/2/3일)과 부분 익절 방식(공식/고수익/최소)은 앱에서 선택할 수 있습니다.</p>
+<div class="note">본 페이지의 백테스트 차트는 야후 파이낸스 일봉(최근 10년, 배당 조정 종가)으로 앱의 규칙을 재현한
+참고 자료입니다. 세금·수수료·호가 슬리피지를 반영하지 않았고, 과거 성과는 미래 수익을 보장하지 않습니다.
+규칙 서술과 실제 신호는 항상 앱의 최신 구현을 기준으로 합니다. 본 콘텐츠는 투자 자문이 아니며, 투자 판단과
+책임은 이용자 본인에게 있습니다.</div></div>
+<div class="foot">© 2026 FatTail Labs. All rights reserved.<br>문의/Contact: fattaillabs.ceo@gmail.com</div>
+</div></body></html>
