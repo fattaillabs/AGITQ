@@ -17,6 +17,8 @@ body { font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Segoe
   color:var(--tx); background:var(--paper); -webkit-font-smoothing:antialiased; }
 .wrap { max-width:980px; margin:0 auto; padding:0 20px; }
 
+.langflags { position:absolute; top:20px; right:22px; font-size:17px; letter-spacing:5px; z-index:5; }
+.langflags a { text-decoration:none; opacity:.5; } .langflags a:hover { opacity:.9; }
 /* ── 히어로 ── */
 .hero { background:radial-gradient(1200px 600px at 75% -10%, #2a3160 0%, var(--ink) 55%); color:#fff; overflow:hidden; position:relative; }
 .hero .wrap { display:grid; grid-template-columns:1.15fr 0.85fr; gap:36px; align-items:center; padding:72px 20px 84px; position:relative; }
@@ -117,9 +119,10 @@ footer a { color:#7c8bd9; text-decoration:none; }
 
 <!-- ─────────── 히어로 ─────────── -->
 <div class="hero">
+  <div class="langflags"><a href="index.html">🇰🇷</a><a href="index-en.html">🇺🇸</a><span>🇯🇵</span></div>
   <div class="wrap">
     <div>
-      <div class="brand"><img src="AGITQ_logo.png" alt="アギティキュー・プレイブックのロゴ"><span>アギティキュー・プレイブック</span><span style="font-size:16px;letter-spacing:4px;margin-left:auto"><a href="index.html" style="opacity:.55;text-decoration:none">🇰🇷</a><span>🇯🇵</span></span></div>
+      <div class="brand"><img src="AGITQ_logo.png" alt="アギティキュー・プレイブックのロゴ"><span>アギティキュー・プレイブック</span></div>
       <h1>ナスダック移動平均売買、<br><em>シグナルから記録まで</em>一つの場所で</h1>
       <p class="sub">コミュニティが検証したTQQQ 200日線売買法をアプリにしました。
         今日の売買シグナルと市場温度を確認し、通知とウィジェットで見逃さず、バックテストで根拠を自分の目で確かめられます。</p>

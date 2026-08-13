@@ -17,6 +17,8 @@ body { font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Segoe
   color:var(--tx); background:var(--paper); -webkit-font-smoothing:antialiased; }
 .wrap { max-width:980px; margin:0 auto; padding:0 20px; }
 
+.langflags { position:absolute; top:20px; right:22px; font-size:17px; letter-spacing:5px; z-index:5; }
+.langflags a { text-decoration:none; opacity:.5; } .langflags a:hover { opacity:.9; }
 /* ── 히어로 ── */
 .hero { background:radial-gradient(1200px 600px at 75% -10%, #2a3160 0%, var(--ink) 55%); color:#fff; overflow:hidden; position:relative; }
 .hero .wrap { display:grid; grid-template-columns:1.15fr 0.85fr; gap:36px; align-items:center; padding:72px 20px 84px; position:relative; }
@@ -117,6 +119,7 @@ footer a { color:#7c8bd9; text-decoration:none; }
 
 <!-- ─────────── 히어로 ─────────── -->
 <div class="hero">
+  <div class="langflags"><span>🇰🇷</span><a href="index-en.html">🇺🇸</a><a href="index-ja.html">🇯🇵</a></div>
   <div class="wrap">
     <div>
       <div class="brand"><img src="AGITQ_logo.png" alt="아기티큐 플레이북 로고"><span>아기티큐 플레이북</span><span style="font-size:16px;letter-spacing:4px;margin-left:auto"><span>🇰🇷</span><a href="index-ja.html" style="opacity:.55;text-decoration:none">🇯🇵</a></span></div>
