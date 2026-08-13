@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>アギティキュー売買手法 — アギティキュー・プレイブック</title>
+<meta name="description" content="TQQQの200日移動平均線に基づく資産配分戦略 — 3つの市場局面と行動原則、出典とバックテストまで。">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+  color:#2b2f3a; background:linear-gradient(135deg,#f5f7fa 0%,#e4e8eb 100%); min-height:100vh; padding:24px 16px; }
+.wrap { max-width:860px; margin:0 auto; }
+.card { background:#fff; border-radius:16px; box-shadow:0 4px 18px rgba(60,70,110,0.08); padding:28px; margin-bottom:20px; }
+.hero { background:linear-gradient(135deg,#667eea 0%,#764ba2 100%); color:#fff; border-radius:16px; padding:36px 28px; margin-bottom:20px; }
+.hero h1 { font-size:27px; font-weight:800; letter-spacing:-.6px; margin-bottom:8px; }
+.hero p { opacity:.92; font-size:14.5px; line-height:1.65; }
+.crumb { font-size:13px; margin-bottom:14px; }
+.crumb a { color:rgba(255,255,255,.85); text-decoration:none; }
+.badge { display:inline-block; background:rgba(255,255,255,.22); border:1px solid rgba(255,255,255,.4);
+  border-radius:999px; padding:3px 12px; font-size:12px; margin-bottom:12px; }
+.credit { margin-top:16px; font-size:12.5px; color:rgba(255,255,255,.85); }
+.credit a { color:#fff; }
+h2 { font-size:19px; margin:2px 0 14px; color:#2b2f3a; border-bottom:3px solid #667eea; display:inline-block; padding-bottom:4px; }
+p.lead { font-size:14.5px; line-height:1.8; color:#444; }
+.rule { display:flex; gap:14px; padding:16px 0; border-bottom:1px solid #eef0f5; }
+.rule:last-child { border-bottom:none; }
+.rule .ic { width:40px; height:40px; border-radius:12px; display:flex; align-items:center; justify-content:center; flex:none; }
+.rule .ic svg { width:20px; height:20px; stroke:currentColor; fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+.rule.cold .ic { background:#eef0fb; color:#5666c9; } .rule.focus .ic { background:#e8f6ec; color:#2f9e55; } .rule.hot .ic { background:#fdf3dd; color:#c98a00; }
+.rule h3 { font-size:15.5px; font-weight:700; margin-bottom:3px; letter-spacing:-.3px; }
+.rule .cond { font-size:12px; color:#8a8f9c; font-variant-numeric:tabular-nums; margin-bottom:6px; }
+.rule p { font-size:13.5px; color:#555; line-height:1.7; }
+.rule b { color:#2b2f3a; }
+img.chart { width:100%; border-radius:10px; border:1px solid #eef0f5; margin:10px 0 4px; }
+.cap { font-size:12px; color:#8a8f9c; margin-bottom:6px; }
+.note { background:#fdf7e8; border:1px solid #f2e2b8; border-radius:12px; padding:16px 18px; font-size:13.5px;
+  color:#7a5d1e; line-height:1.75; }
+.note b { color:#5d4610; }
+ul.sum { list-style:none; margin-top:4px; }
+ul.sum li { font-size:14px; color:#444; line-height:1.7; padding:9px 0 9px 26px; border-bottom:1px solid #eef0f5; position:relative; }
+ul.sum li:last-child { border-bottom:none; }
+ul.sum li::before { content:''; position:absolute; left:4px; top:17px; width:7px; height:7px; border-radius:50%; background:#667eea; }
+.src { font-size:13px; line-height:1.9; }
+.src a { color:#667eea; text-decoration:none; }
+.cta { display:block; text-align:center; background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);
+  color:#fff; border-radius:12px; padding:15px; font-weight:700; text-decoration:none; font-size:15px; margin-top:14px; }
+.foot { text-align:center; font-size:12px; color:#9aa0ab; padding:18px 0 6px; line-height:1.7; }
+.lang { float:right; font-size:12.5px; } .lang a { color:rgba(255,255,255,.9); text-decoration:underline; }
+@media (max-width:520px){ .card{padding:20px} .hero{padding:28px 20px} }
+</style>
+</head>
+<body><div class="wrap">
+
+<div class="hero">
+  <div class="lang"><span style="font-size:17px;letter-spacing:4px"><a href="AGITQ-introduction.html" style="opacity:.55;text-decoration:none">🇰🇷</a><a href="AGITQ-introduction-en.html" style="opacity:.55;text-decoration:none">🇺🇸</a><span>🇯🇵</span></span></div>
+  <div class="crumb"><a href="index.html">← ホーム</a></div>
+  <span class="badge">元祖の売買手法</span>
+  <h1>アギティキュー売買手法</h1>
+  <p>TQQQの200日移動平均線ただ一つで市場の局面を判断し、局面ごとに決められた資産配分を実行する投資戦略です。
+     予測はしません — ルールに従うだけです。</p>
+  <div class="credit">アギティキュー氏が開発・公開した手法です · 公式ブログ
+    <a href="https://blog.naver.com/humblich" target="_blank" rel="noopener">blog.naver.com/humblich</a></div>
+</div>
+
+<div class="card">
+  <h2>基本概念</h2>
+  <p class="lead">基準はただ一つ、<b>TQQQ(ナスダック3倍レバレッジETF)の200日移動平均線</b>です。
+    終値がこの線のどこにあるかで市場を3つの局面に分け、各局面でやるべきことがあらかじめ決まっています。
+    判断の余地がないので、感情が入り込む隙もありません。</p>
+</div>
+
+<div class="card">
+  <h2>3つの市場局面と行動原則</h2>
+  <div class="rule cold">
+    <div class="ic"><svg viewBox="0 0 24 24"><polyline points="3 7 9 13 13 9 21 17"/><polyline points="21 11 21 17 15 17"/></svg></div>
+    <div>
+      <h3>下落局面</h3>
+      <div class="cond">TQQQ終値 &lt; 200日線</div>
+      <p>すべての成長資産(TQQQ、SPYM)を<b>全量売却</b>し、100%<b>SGOV</b>(短期国債ETF)へ切り替えます。
+        レバレッジから完全に降りて、次のシグナルを待ちます。</p>
+    </div>
+  </div>
+  <div class="rule focus">
+    <div class="ic"><svg viewBox="0 0 24 24"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="15 7 21 7 21 13"/></svg></div>
+    <div>
+      <h3>集中投資局面</h3>
+      <div class="cond">200日線 &lt; TQQQ終値 &lt; 200日線 +5%</div>
+      <p>安全資産(SGOV)を<b>全量TQQQへ入れ替え</b>、新規資金もTQQQを買います。
+        ただし過熱局面で買っておいたSPYMがあれば<b>そのまま保有</b>します。戦略の収益の大半が生まれる中核ゾーンです。</p>
+    </div>
+  </div>
+  <div class="rule hot">
+    <div class="ic"><svg viewBox="0 0 24 24"><path d="M10 14.5V5a2 2 0 1 1 4 0v9.5a4 4 0 1 1-4 0Z"/><circle cx="12" cy="18" r="1.4" fill="currentColor" stroke="none"/></svg></div>
+    <div>
+      <h3>過熱局面</h3>
+      <div class="cond">TQQQ終値 &gt; 200日線 +5% (エンベロープ)</div>
+      <p>既存のTQQQはそのまま保有しつつ、給料など<b>新しく入った資金はSPYMを購入</b>してリスクを管理します。
+        短期的な過熱シグナルの可能性があるため、追いかけ買いの代わりに安定資産を積み上げます。</p>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h2>なぜSPYMを守るのか</h2>
+  <p class="lead">集中投資局面が来ると「SPYMまで全部売ってTQQQにオールインした方が良いのでは?」という誘惑が生まれます。
+    しかし長期的には、むしろリターンを蝕む選択になり得ます。</p>
+  <div class="note" style="margin-top:14px">
+    SPYMは口座の<b>バラスト(重り)</b>です。TQQQが急落したとき口座全体が崩れるのを防ぎ、
+    その小さな安定性が複利を通じて長期的に大きなリターン差を生みます。
+    もちろん<b>下落局面が来ればSPYMもルールどおり一緒に売却</b>してSGOVへ切り替えます。
+  </div>
+</div>
+
+<div class="card">
+  <h2>実データで見る戦略</h2>
+  <p class="lead">直近10年のデータでこの戦略のルールをそのまま再現したチャートです。緑の網掛けがTQQQ保有期間 —
+    2022年の弱気相場を横ばいでやり過ごし、2023年のゴールデンクロスで再エントリーする姿がこの戦略の核心シーンです。</p>
+  <img class="chart" src="assets/strategies/original_price.png" alt="TQQQ 200일선 보유 구간 차트">
+  <div class="cap">直近5年 · 緑の網掛け = 保有期間</div>
+  <img class="chart" src="assets/strategies/original_equity.png" alt="10년 성장 곡선과 CAGR·MDD">
+  <div class="cap">直近10年 · $1成長シミュレーション(税・手数料は未反映、参考用)</div>
+  <a class="cta" href="strategy-original-ja.html">この戦略のルール・FAQを詳しく見る</a>
+</div>
+
+<div class="card">
+  <h2>要点まとめ</h2>
+  <ul class="sum">
+    <li><b>下落相場</b> — 全資産を売却 → SGOV 100%</li>
+    <li><b>上昇相場(200日線付近)</b> — SGOV → TQQQへ切替、SPYMは保有維持</li>
+    <li><b>過熱相場(+5%以上)</b> — 新規資金はSPYMへ、既存TQQQは保有</li>
+    <li><b>SPYM売却禁止</b> — 集中投資中は絶対に売らない(下落相場を除く)</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h2>出典</h2>
+  <div class="src">
+    • <a href="https://www.fmkorea.com/7325015916" target="_blank" rel="noopener">原文 (fmkorea・韓国語)</a><br>
+    • <a href="https://www.fmkorea.com/8981905819" target="_blank" rel="noopener">[Official] 再整理版 (韓国語)</a><br>
+    • <a href="https://www.fmkorea.com/7459764711" target="_blank" rel="noopener">FAQ集 (韓国語)</a><br>
+    • <a href="https://www.fmkorea.com/7353849787" target="_blank" rel="noopener">バックテスト検証 (韓国語)</a><br>
+    • <a href="https://blog.naver.com/humblich" target="_blank" rel="noopener">公式ブログ (韓国語)</a>
+  </div>
+  <a class="cta" href="strategies-ja.html">7つの戦略ガイドをすべて見る</a>
+</div>
+
+<div class="card">
+  <div class="note">
+    <b>投資上の注意</b> — 本手法は投資の参考資料に過ぎず、投資の最終判断と責任は投資家ご自身にあります。
+    レバレッジETFは高いリターンの可能性とともに高い損失リスクを伴います。十分な学習と理解の上、慎重に投資してください。
+  </div>
+</div>
+
+<div class="foot">© 2026 アギティキュー・プレイブック · 売買手法の著作権はアギティキュー氏にあります。<br>
+お問い合わせ: fattaillabs.ceo@gmail.com</div>
+</div></body></html>

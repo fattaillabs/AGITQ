@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TQQQ 5,218 — AGITQ</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+  color:#333; background:linear-gradient(135deg,#f5f7fa 0%,#e4e8eb 100%); min-height:100vh; padding:24px 16px; }
+.wrap { max-width:860px; margin:0 auto; }
+.card { background:#fff; border-radius:16px; box-shadow:0 4px 18px rgba(60,70,110,0.08); padding:28px; margin-bottom:20px; }
+.hero { background:linear-gradient(135deg,#667eea 0%,#764ba2 100%); color:#fff; border-radius:16px;
+  padding:34px 28px; margin-bottom:20px; }
+.hero h1 { font-size:26px; margin-bottom:8px; }
+.hero p { opacity:.92; font-size:14.5px; line-height:1.6; }
+.crumb { font-size:13px; margin-bottom:14px; }
+.crumb a { color:#667eea; text-decoration:none; }
+.badge { display:inline-block; background:rgba(255,255,255,.22); border:1px solid rgba(255,255,255,.4);
+  border-radius:999px; padding:3px 12px; font-size:12px; margin-bottom:12px; }
+h2 { font-size:19px; margin:2px 0 14px; color:#2b2f3a; border-bottom:3px solid #667eea; display:inline-block; padding-bottom:4px; }
+p.lead { font-size:14.5px; line-height:1.75; color:#444; }
+table.rules { width:100%; border-collapse:collapse; font-size:14px; margin-top:6px; }
+table.rules th { text-align:left; width:120px; color:#667eea; font-weight:600; padding:10px 10px 10px 0;
+  border-bottom:1px solid #eef0f5; vertical-align:top; white-space:nowrap; }
+table.rules td { padding:10px 0; border-bottom:1px solid #eef0f5; line-height:1.65; color:#444; }
+img.chart { width:100%; border-radius:10px; border:1px solid #eef0f5; margin:10px 0 4px; }
+.cap { font-size:12px; color:#8a8f9c; margin-bottom:10px; }
+.statrow { display:flex; gap:12px; margin:14px 0 4px; flex-wrap:wrap; }
+.stat { flex:1; min-width:140px; background:#f7f8fc; border-radius:12px; padding:14px; text-align:center; }
+.stat .v { font-size:21px; font-weight:700; color:#667eea; }
+.stat .k { font-size:12px; color:#888; margin-top:3px; }
+.grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:14px; }
+a.scard { display:block; background:#fff; border:1px solid #eef0f5; border-radius:14px; padding:18px;
+  text-decoration:none; color:inherit; transition:box-shadow .15s, transform .15s; }
+a.scard:hover { box-shadow:0 6px 20px rgba(102,126,234,.18); transform:translateY(-2px); }
+a.scard .b { display:inline-block; background:#eef0fb; color:#5666c9; border-radius:999px; padding:2px 10px; font-size:11px; margin-bottom:8px; }
+a.scard .t { font-weight:700; font-size:15.5px; margin-bottom:5px; }
+a.scard .d { font-size:12.5px; color:#777; line-height:1.5; margin-bottom:8px; }
+a.scard .m { font-size:11.5px; color:#999; }
+.faq dt { font-weight:600; font-size:14px; margin-top:12px; color:#2b2f3a; }
+.faq dd { font-size:13.5px; color:#555; line-height:1.65; margin:4px 0 0; }
+.note { background:#fdf7e8; border:1px solid #f2e2b8; border-radius:12px; padding:14px 16px; font-size:13px;
+  color:#7a5d1e; line-height:1.65; margin-top:14px; }
+.src { font-size:13px; line-height:1.9; }
+.src a { color:#667eea; text-decoration:none; }
+.cta { display:block; text-align:center; background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);
+  color:#fff; border-radius:12px; padding:15px; font-weight:700; text-decoration:none; font-size:15px; margin-top:6px; }
+.foot { text-align:center; font-size:12px; color:#9aa0ab; padding:18px 0 6px; line-height:1.7; }
+.lang { float:right; font-size:12.5px; } .lang a { color:rgba(255,255,255,.9); text-decoration:underline; }
+@media (max-width:520px){ .card{padding:20px} .hero{padding:26px 20px} }
+</style>
+</head>
+<body><div class="wrap">
+
+<div class="hero">
+<div class="lang"><span style="font-size:17px;letter-spacing:4px"><a href="strategy-tqqq5218.html" style="opacity:.55;text-decoration:none">🇰🇷</a><a href="strategy-tqqq5218-en.html" style="opacity:.55;text-decoration:none">🇺🇸</a><span style="opacity:1">🇯🇵</span></span></div>
+<div class="crumb"><a href="strategies-ja.html" style="color:rgba(255,255,255,.85)">← 戦略ガイド</a></div>
+<span class="badge">取引少なめ</span>
+<h1>TQQQ 5,218</h1>
+<p>TQQQ自身の5日線×218日線 — 取引回数を減らし、トレンドを長く乗る変種です。</p>
+</div>
+<div class="card"><h2>仕組み</h2><p class="lead">オリジナルの1/200からシグナル線を5日線に、基準線を218日線に伸ばしてクロス回数を減らした構成です。
+最適化シリーズ第2回は手数料まで反映すると「n1は短く固定し、n2は210〜230のバンドで自由に」と勧めており、
+この戦略はそのバンド内でTQQQ自身のシグナルで動くアプリの変種です。売買がまれで実行負担が最も軽い戦略です。</p><div class="statrow">
+<div class="stat"><div class="v">38.3%</div><div class="k">10年CAGR(シミュレーション)</div></div>
+<div class="stat"><div class="v">-52.7%</div><div class="k">最大ドローダウン(シミュレーション)</div></div>
+</div></div>
+<div class="card"><h2>シグナル資産・売買資産</h2><table class="rules"><tr><th>シグナル(チャート)基準</th><td>TQQQ自体 · 5日線 × 218日線</td></tr><tr><th>実際の売買</th><td>TQQQ (ナスダック3倍)</td></tr><tr><th>売却後の待機</th><td>SGOV (短期国債)</td></tr></table></div>
+<div class="card"><h2>ルール</h2><table class="rules"><tr><th>シグナル</th><td>TQQQ 5日線 vs 218日線</td></tr><tr><th>買い</th><td>5日線が218日線を上抜け → TQQQを購入</td></tr><tr><th>売り</th><td>5日線が218日線を下抜け → TQQQを全量売却</td></tr><tr><th>根拠</th><td>最適化第2回: 手数料反映後も基準線210〜230のバンドが有効 — そのバンドのTQQQシグナル変種</td></tr></table></div>
+<div class="card"><h2>実データチャート</h2>
+<img class="chart" src="assets/strategies/tqqq5218_price.png" alt="TQQQ 5,218 signal chart"><div class="cap">直近5年 · 緑の網掛け = 保有期間</div>
+<img class="chart" src="assets/strategies/tqqq5218_equity.png" alt="TQQQ 5,218 equity chart"><div class="cap">直近10年 · $1成長シミュレーション(税・手数料は未反映)</div>
+</div>
+<div class="card"><h2>よくある質問</h2><dl class="faq"><dt>オリジナル1/200と何が違いますか?</dt><dd>シグナル線が5日線なので1日だけの跳ねに反応せず、基準線が218日とやや長いためクロスがさらにまれです。その分エントリー・エグジットは遅れますが、売買回数と手数料・課税イベントが減ります。</dd><dt>基準線は必ず218日でなければ?</dt><dd>いいえ。最適化シリーズの結論は「短いシグナル線を固定し、基準線は210〜230のバンドならどこでも有効」です。特定の数字に意味を持たせた瞬間に過剰最適化になります — 218はその代表値に過ぎません。</dd><dt>取引が少ないと機会を逃しませんか?</dt><dd>エントリー・エグジットは遅れますが、取引コスト・課税イベント・執行ミスが減ります。バックテストでは年率リターンをほぼ維持しつつ、実行負担が大きく下がるのがこの変種の価値です。</dd></dl></div>
+<div class="card"><h2>出典</h2><div class="src">• <a href='https://www.fmkorea.com/7398740367' target='_blank' rel='noopener'>最適化第2回 — 手数料反映スイープ (韓国語)</a><br></div>
+<div class="note">本ページのバックテストはYahoo Financeの日足(直近10年・調整後終値)でアプリのルールを再現した参考資料です。
+税金・手数料・スリッページは反映していません。過去の成績は将来の収益を保証するものではありません。
+ルールの記述と実際のシグナルは常にアプリの最新実装が基準です。本コンテンツは投資助言ではなく、
+投資判断と責任はご自身にあります。</div>
+<a class="cta" href="index.html">アプリでこの戦略を有効化 → 設定 · 戦略選択</a></div>
+<div class="foot">© 2026 FatTail Labs. All rights reserved.<br>문의/Contact: fattaillabs.ceo@gmail.com</div>
+</div></body></html>

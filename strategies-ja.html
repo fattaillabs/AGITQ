@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>戦略ガイド — AGITQ</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+  color:#333; background:linear-gradient(135deg,#f5f7fa 0%,#e4e8eb 100%); min-height:100vh; padding:24px 16px; }
+.wrap { max-width:860px; margin:0 auto; }
+.card { background:#fff; border-radius:16px; box-shadow:0 4px 18px rgba(60,70,110,0.08); padding:28px; margin-bottom:20px; }
+.hero { background:linear-gradient(135deg,#667eea 0%,#764ba2 100%); color:#fff; border-radius:16px;
+  padding:34px 28px; margin-bottom:20px; }
+.hero h1 { font-size:26px; margin-bottom:8px; }
+.hero p { opacity:.92; font-size:14.5px; line-height:1.6; }
+.crumb { font-size:13px; margin-bottom:14px; }
+.crumb a { color:#667eea; text-decoration:none; }
+.badge { display:inline-block; background:rgba(255,255,255,.22); border:1px solid rgba(255,255,255,.4);
+  border-radius:999px; padding:3px 12px; font-size:12px; margin-bottom:12px; }
+h2 { font-size:19px; margin:2px 0 14px; color:#2b2f3a; border-bottom:3px solid #667eea; display:inline-block; padding-bottom:4px; }
+p.lead { font-size:14.5px; line-height:1.75; color:#444; }
+table.rules { width:100%; border-collapse:collapse; font-size:14px; margin-top:6px; }
+table.rules th { text-align:left; width:120px; color:#667eea; font-weight:600; padding:10px 10px 10px 0;
+  border-bottom:1px solid #eef0f5; vertical-align:top; white-space:nowrap; }
+table.rules td { padding:10px 0; border-bottom:1px solid #eef0f5; line-height:1.65; color:#444; }
+img.chart { width:100%; border-radius:10px; border:1px solid #eef0f5; margin:10px 0 4px; }
+.cap { font-size:12px; color:#8a8f9c; margin-bottom:10px; }
+.statrow { display:flex; gap:12px; margin:14px 0 4px; flex-wrap:wrap; }
+.stat { flex:1; min-width:140px; background:#f7f8fc; border-radius:12px; padding:14px; text-align:center; }
+.stat .v { font-size:21px; font-weight:700; color:#667eea; }
+.stat .k { font-size:12px; color:#888; margin-top:3px; }
+.grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:14px; }
+a.scard { display:block; background:#fff; border:1px solid #eef0f5; border-radius:14px; padding:18px;
+  text-decoration:none; color:inherit; transition:box-shadow .15s, transform .15s; }
+a.scard:hover { box-shadow:0 6px 20px rgba(102,126,234,.18); transform:translateY(-2px); }
+a.scard .b { display:inline-block; background:#eef0fb; color:#5666c9; border-radius:999px; padding:2px 10px; font-size:11px; margin-bottom:8px; }
+a.scard .t { font-weight:700; font-size:15.5px; margin-bottom:5px; }
+a.scard .d { font-size:12.5px; color:#777; line-height:1.5; margin-bottom:8px; }
+a.scard .m { font-size:11.5px; color:#999; }
+.faq dt { font-weight:600; font-size:14px; margin-top:12px; color:#2b2f3a; }
+.faq dd { font-size:13.5px; color:#555; line-height:1.65; margin:4px 0 0; }
+.note { background:#fdf7e8; border:1px solid #f2e2b8; border-radius:12px; padding:14px 16px; font-size:13px;
+  color:#7a5d1e; line-height:1.65; margin-top:14px; }
+.src { font-size:13px; line-height:1.9; }
+.src a { color:#667eea; text-decoration:none; }
+.cta { display:block; text-align:center; background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);
+  color:#fff; border-radius:12px; padding:15px; font-weight:700; text-decoration:none; font-size:15px; margin-top:6px; }
+.foot { text-align:center; font-size:12px; color:#9aa0ab; padding:18px 0 6px; line-height:1.7; }
+.lang { float:right; font-size:12.5px; } .lang a { color:rgba(255,255,255,.9); text-decoration:underline; }
+@media (max-width:520px){ .card{padding:20px} .hero{padding:26px 20px} }
+</style>
+</head>
+<body><div class="wrap">
+
+<div class="hero">
+<div class="lang"><span style="font-size:17px;letter-spacing:4px"><a href="strategies.html" style="opacity:.55;text-decoration:none">🇰🇷</a><a href="strategies-en.html" style="opacity:.55;text-decoration:none">🇺🇸</a><span style="opacity:1">🇯🇵</span></span></div>
+<div class="crumb"><a href="index.html" style="color:rgba(255,255,255,.85)">← ホーム</a></div>
+<h1>戦略ガイド</h1><p>アギティキュー・プレイブックの7つの戦略 — ルール・根拠・実データチャート</p>
+</div>
+<div class="card"><p class="lead">アプリが提供する7つの戦略を、実際の市場データ(直近10年)で再現して整理しました。カードをタップすると
+各戦略のルール・出典・チャートを確認できます。記述はすべてアプリの最新実装が基準です。</p></div>
+<div class="card"><h2>ひと目で比較</h2>
+<img class="chart" src="assets/strategies/hub_compare.png" alt="strategy comparison"></div>
+<div class="grid"><a class="scard" href="strategy-original-ja.html"><span class="b">ベーシック</span><div class="t">オリジナル200日線</div>
+<div class="d">アプリ名の由来となった元祖戦略。基準はただ一つ — TQQQ自身の200日線です。</div><div class="m">CAGR 32% · MDD -50%</div></a><a class="scard" href="strategy-qqq3161-ja.html"><span class="b">ダマシ減</span><div class="t">QQQ 3,161</div>
+<div class="d">シグナルはQQQの3日線×161日線で見て、売買はTQQQで — 最適化シリーズが見つけた組み合わせです。</div><div class="m">CAGR 45% · MDD -48%</div></a><a class="scard" href="strategy-qldisa-ja.html"><span class="b">節税向き</span><div class="t">QLD ISA (2倍)</div>
+<div class="d">同じQQQ 3/161シグナルで2倍レバレッジのQLDを売買 — 優遇口座と相性の良いマイルド版です。</div><div class="m">CAGR 32% · MDD -34%</div></a><a class="scard" href="strategy-tqqq5218-ja.html"><span class="b">取引少なめ</span><div class="t">TQQQ 5,218</div>
+<div class="d">TQQQ自身の5日線×218日線 — 取引回数を減らし、トレンドを長く乗る変種です。</div><div class="m">CAGR 38% · MDD -53%</div></a><a class="scard" href="strategy-hybrid-ja.html"><span class="b">高勝率</span><div class="t">ハイブリッド 3,185/161</div>
+<div class="d">買いライン(185)と売りライン(161)を分けた非対称戦略 — 「161を取り戻したからと買うな」が核心です。</div><div class="m">CAGR 40% · MDD -48%</div></a><a class="scard" href="strategy-kimjjae-ja.html"><span class="b">スコア式</span><div class="t">キムジェパパ (スコア式)</div>
+<div class="d">2つのトレンドシグナルをスコア化してTQQQ/QLD/SGOVの3段配分 — ボラティリティ・乖離率ゲートが安全ピンです。</div><div class="m">CAGR 61% · MDD -41%</div></a><a class="scard" href="strategy-snowball-ja.html"><span class="b">スノーボール</span><div class="t">スノーボール (5,220 + DIP)</div>
+<div class="d">5/220のトレンド売買に52週高値からの下落率買い(DIP)を組み合わせ — 下落相場を仕込みの機会に変えます。</div><div class="m">CAGR 32% · MDD -54%</div></a></div>
+<div class="card" style="margin-top:20px"><h2>共通ルール</h2><p class="lead">全戦略共通: 移動平均は単純移動平均(SMA)・終値ベースです。過熱判定は長期線+5%のエンベロープ、
+市場温度は下落(長期線の下)/集中(長期線〜+5%)/過熱(+5%超)に区分します。売却時の資金はS&P ETF(既定SPYM)・
+短期国債(既定SGOV)へ回転し、シグナル確認日数(0/2/3日)や部分利確方式はアプリで選択できます。</p>
+<div class="note">本ページのバックテストはYahoo Financeの日足(直近10年・調整後終値)でアプリのルールを再現した参考資料です。
+税金・手数料・スリッページは反映していません。過去の成績は将来の収益を保証するものではありません。
+ルールの記述と実際のシグナルは常にアプリの最新実装が基準です。本コンテンツは投資助言ではなく、
+投資判断と責任はご自身にあります。</div></div>
+<div class="foot">© 2026 FatTail Labs. All rights reserved.<br>문의/Contact: fattaillabs.ceo@gmail.com</div>
+</div></body></html>
