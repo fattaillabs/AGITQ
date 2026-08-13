@@ -1,279 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AGITQ Trading Strategy - AGITQ Playbook</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.7;
-            color: #333;
-            background-color: #f5f7fa;
-            padding: 20px;
-        }
-        
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background-color: #fff;
-            padding: 40px;
-            border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-        }
-        
-        h1 {
-            font-size: 32px;
-            color: #1a1a1a;
-            margin-bottom: 10px;
-            text-align: center;
-        }
-        
-        .subtitle {
-            text-align: center;
-            color: #666;
-            margin-bottom: 30px;
-            font-size: 16px;
-        }
-        
-        .creator-info {
-            text-align: center;
-            margin-bottom: 30px;
-            padding: 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 12px;
-            color: white;
-        }
-        
-        .creator-info p {
-            margin-bottom: 10px;
-        }
-        
-        .creator-info a {
-            color: #fff;
-            text-decoration: underline;
-            font-weight: 600;
-        }
-        
-        h2 {
-            font-size: 22px;
-            color: #2c3e50;
-            margin-top: 40px;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 3px solid #667eea;
-        }
-        
-        h3 {
-            font-size: 18px;
-            color: #34495e;
-            margin-top: 25px;
-            margin-bottom: 12px;
-        }
-        
-        p {
-            margin-bottom: 15px;
-            text-align: justify;
-        }
-        
-        .rule-card {
-            margin: 20px 0;
-            padding: 25px;
-            border-radius: 12px;
-            border-left: 5px solid;
-        }
-        
-        .rule-card.bearish {
-            background-color: #fef3f3;
-            border-color: #e74c3c;
-        }
-        
-        .rule-card.bullish {
-            background-color: #f0fdf4;
-            border-color: #27ae60;
-        }
-        
-        .rule-card.overheat {
-            background-color: #fffbeb;
-            border-color: #f39c12;
-        }
-        
-        .rule-card h4 {
-            font-size: 17px;
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .rule-card.bearish h4 { color: #c0392b; }
-        .rule-card.bullish h4 { color: #1e8449; }
-        .rule-card.overheat h4 { color: #d68910; }
-        
-        .condition {
-            font-family: 'SF Mono', Consolas, monospace;
-            background-color: rgba(0,0,0,0.05);
-            padding: 3px 8px;
-            border-radius: 4px;
-            font-size: 14px;
-        }
-        
-        .warning-box {
-            background-color: #fef9e7;
-            border: 2px solid #f1c40f;
-            border-radius: 12px;
-            padding: 25px;
-            margin: 30px 0;
-        }
-        
-        .warning-box h4 {
-            color: #9a7b0a;
-            margin-bottom: 15px;
-            font-size: 18px;
-        }
-        
-        .summary-box {
-            background: linear-gradient(135deg, #e8f4f8 0%, #d4edda 100%);
-            border-radius: 12px;
-            padding: 25px;
-            margin: 30px 0;
-        }
-        
-        .summary-box h4 {
-            color: #2c3e50;
-            margin-bottom: 15px;
-        }
-        
-        .summary-box ul {
-            list-style: none;
-            padding: 0;
-        }
-        
-        .summary-box li {
-            padding: 8px 0;
-            padding-left: 25px;
-            position: relative;
-        }
-        
-        .summary-box li::before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: #27ae60;
-            font-weight: bold;
-        }
-        
-        .footer {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid #eee;
-            color: #888;
-            font-size: 14px;
-        }
-        
-        .disclaimer {
-            background-color: #f8f9fa;
-            border-radius: 8px;
-            padding: 15px;
-            margin-top: 30px;
-            font-size: 13px;
-            color: #666;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The AGITQ Method — AGITQ Playbook</title>
+<meta name="description" content="An asset-allocation strategy built on TQQQ's 200-day moving average — three market regimes, clear rules, sources and backtests.">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+  color:#2b2f3a; background:linear-gradient(135deg,#f5f7fa 0%,#e4e8eb 100%); min-height:100vh; padding:24px 16px; }
+.wrap { max-width:860px; margin:0 auto; }
+.card { background:#fff; border-radius:16px; box-shadow:0 4px 18px rgba(60,70,110,0.08); padding:28px; margin-bottom:20px; }
+.hero { background:linear-gradient(135deg,#667eea 0%,#764ba2 100%); color:#fff; border-radius:16px; padding:36px 28px; margin-bottom:20px; }
+.hero h1 { font-size:27px; font-weight:800; letter-spacing:-.6px; margin-bottom:8px; }
+.hero p { opacity:.92; font-size:14.5px; line-height:1.65; }
+.crumb { font-size:13px; margin-bottom:14px; }
+.crumb a { color:rgba(255,255,255,.85); text-decoration:none; }
+.badge { display:inline-block; background:rgba(255,255,255,.22); border:1px solid rgba(255,255,255,.4);
+  border-radius:999px; padding:3px 12px; font-size:12px; margin-bottom:12px; }
+.credit { margin-top:16px; font-size:12.5px; color:rgba(255,255,255,.85); }
+.credit a { color:#fff; }
+h2 { font-size:19px; margin:2px 0 14px; color:#2b2f3a; border-bottom:3px solid #667eea; display:inline-block; padding-bottom:4px; }
+p.lead { font-size:14.5px; line-height:1.8; color:#444; }
+.rule { display:flex; gap:14px; padding:16px 0; border-bottom:1px solid #eef0f5; }
+.rule:last-child { border-bottom:none; }
+.rule .ic { width:40px; height:40px; border-radius:12px; display:flex; align-items:center; justify-content:center; flex:none; }
+.rule .ic svg { width:20px; height:20px; stroke:currentColor; fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+.rule.cold .ic { background:#eef0fb; color:#5666c9; } .rule.focus .ic { background:#e8f6ec; color:#2f9e55; } .rule.hot .ic { background:#fdf3dd; color:#c98a00; }
+.rule h3 { font-size:15.5px; font-weight:700; margin-bottom:3px; letter-spacing:-.3px; }
+.rule .cond { font-size:12px; color:#8a8f9c; font-variant-numeric:tabular-nums; margin-bottom:6px; }
+.rule p { font-size:13.5px; color:#555; line-height:1.7; }
+.rule b { color:#2b2f3a; }
+img.chart { width:100%; border-radius:10px; border:1px solid #eef0f5; margin:10px 0 4px; }
+.cap { font-size:12px; color:#8a8f9c; margin-bottom:6px; }
+.note { background:#fdf7e8; border:1px solid #f2e2b8; border-radius:12px; padding:16px 18px; font-size:13.5px;
+  color:#7a5d1e; line-height:1.75; }
+.note b { color:#5d4610; }
+ul.sum { list-style:none; margin-top:4px; }
+ul.sum li { font-size:14px; color:#444; line-height:1.7; padding:9px 0 9px 26px; border-bottom:1px solid #eef0f5; position:relative; }
+ul.sum li:last-child { border-bottom:none; }
+ul.sum li::before { content:''; position:absolute; left:4px; top:17px; width:7px; height:7px; border-radius:50%; background:#667eea; }
+.src { font-size:13px; line-height:1.9; }
+.src a { color:#667eea; text-decoration:none; }
+.cta { display:block; text-align:center; background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);
+  color:#fff; border-radius:12px; padding:15px; font-weight:700; text-decoration:none; font-size:15px; margin-top:14px; }
+.foot { text-align:center; font-size:12px; color:#9aa0ab; padding:18px 0 6px; line-height:1.7; }
+.lang { float:right; font-size:12.5px; } .lang a { color:rgba(255,255,255,.9); text-decoration:underline; }
+@media (max-width:520px){ .card{padding:20px} .hero{padding:28px 20px} }
+</style>
 </head>
-<body>
-    <div class="container">
-        <h1>📈 AGITQ Trading Strategy</h1>
-        <p class="subtitle">TQQQ 200-Day Moving Average Asset Allocation Strategy</p>
-        
-        <div class="creator-info">
-            <p>A unique investment strategy developed by <strong>AGITQ</strong>.</p>
-            <p>📝 Official Blog (Korean): <a href="https://blog.naver.com/humblich" target="_blank">blog.naver.com/humblich</a></p>
-        </div>
-        
-        <h2>Basic Concept</h2>
-        <p>
-            The AGITQ trading strategy uses the 200-day moving average of TQQQ (NASDAQ 3x Leveraged ETF) 
-            to assess market conditions and execute appropriate asset allocation.
-        </p>
-        
-        <h2>Three Market Conditions & Action Rules</h2>
-        <p>The core of this strategy lies in <strong>three clear action rules</strong> based on market conditions.</p>
-        
-        <div class="rule-card bearish">
-            <h4>🔴 Bearish Condition</h4>
-            <p class="condition">TQQQ Price &lt; 200MA</p>
-            <p>
-                <strong>Sell all</strong> growth assets (TQQQ, S&P500 ETF) and convert to 
-                <strong>100% SGOV</strong> (Short-term Treasury ETF).
-            </p>
-        </div>
-        
-        <div class="rule-card bullish">
-            <h4>🟢 Concentrated Investment</h4>
-            <p class="condition">200MA &lt; TQQQ Price &lt; 200MA + 5%</p>
-            <p>
-                Convert all safe assets (SGOV) to <strong>TQQQ</strong>. 
-                New funds should also buy TQQQ. 
-                However, if you hold S&P500 ETF from the "Overheated" phase, <strong>keep holding it</strong>.
-            </p>
-            <p><em>→ This is the key zone for maximizing returns.</em></p>
-        </div>
-        
-        <div class="rule-card overheat">
-            <h4>🟡 Overheated Condition</h4>
-            <p class="condition">TQQQ Price &gt; 200MA + 5%</p>
-            <p>
-                <strong>Hold</strong> existing TQQQ positions. 
-                New funds (salary, etc.) should buy <strong>S&P500 ETF</strong> to manage risk.
-            </p>
-            <p><em>→ This may signal short-term overheating, so add stable assets instead of chasing.</em></p>
-        </div>
-        
-        <div class="warning-box">
-            <h4>⚠️ Very Important: Why You Should Keep S&P500 ETF</h4>
-            <p>
-                During "Concentrated Investment," you might be tempted to sell S&P500 ETF and go all-in on TQQQ. 
-                However, this can be <strong>the worst decision that eats away at long-term returns</strong>.
-            </p>
-            <p>
-                S&P500 ETF acts as a <strong>'ballast'</strong> that prevents your entire portfolio from collapsing 
-                when TQQQ crashes. This small stability creates <strong>huge return differences</strong> through 
-                the magic of compounding over the long term.
-            </p>
-            <p>
-                Of course, when "Bearish Condition" arrives, S&P500 ETF should also be <strong>sold according to the rules</strong> 
-                and converted to SGOV.
-            </p>
-        </div>
-        
-        <div class="summary-box">
-            <h4>📋 Key Summary</h4>
-            <ul>
-                <li><strong>Bear Market</strong>: Sell all assets → 100% SGOV</li>
-                <li><strong>Bull Market (near 200MA)</strong>: SGOV → TQQQ, keep S&P500 ETF</li>
-                <li><strong>Overheated (200MA +5% or more)</strong>: New funds to S&P500 ETF, hold TQQQ</li>
-                <li><strong>Don't sell S&P500 ETF</strong>: Never sell during concentrated investment (except in bear market)</li>
-            </ul>
-        </div>
-        
-        <div class="disclaimer">
-            <strong>⚠️ Investment Disclaimer</strong><br>
-            This trading strategy is for reference only. All investment decisions and responsibilities 
-            lie with the investor. Leveraged ETFs carry high potential returns along with high risk of loss. 
-            Please invest carefully with sufficient knowledge and understanding.
-        </div>
-        
-        <div class="footer">
-            <p>© 2024 AGITQ Playbook. Trading strategy copyright belongs to AGITQ.</p>
-        </div>
+<body><div class="wrap">
+
+<div class="hero">
+  <div class="lang"><a href="AGITQ-introduction.html">한국어</a></div>
+  <div class="crumb"><a href="index.html">← Home</a></div>
+  <span class="badge">The original method</span>
+  <h1>The AGITQ Method</h1>
+  <p>One reference — TQQQ's 200-day moving average — decides the market regime, and each regime has a
+     predefined allocation. No predictions. Just rules.</p>
+  <div class="credit">Developed and shared by AGITQ · Official blog
+    <a href="https://blog.naver.com/humblich" target="_blank" rel="noopener">blog.naver.com/humblich</a></div>
+</div>
+
+<div class="card">
+  <h2>The idea</h2>
+  <p class="lead">There is exactly one reference: the <b>200-day moving average of TQQQ</b> (the 3x
+    Nasdaq ETF). Where the closing price sits relative to that line defines one of three regimes, and each
+    regime comes with a fixed action. Nothing is left to judgment — so emotion never gets a vote.</p>
+</div>
+
+<div class="card">
+  <h2>Three regimes, three rules</h2>
+  <div class="rule cold">
+    <div class="ic"><svg viewBox="0 0 24 24"><polyline points="3 7 9 13 13 9 21 17"/><polyline points="21 11 21 17 15 17"/></svg></div>
+    <div>
+      <h3>Falling</h3>
+      <div class="cond">TQQQ close &lt; 200-day SMA</div>
+      <p><b>Sell all</b> growth assets (TQQQ, SPYM) and move 100% into <b>SGOV</b> (short-term treasuries).
+        Step fully off the leverage and wait for the next signal.</p>
     </div>
-</body>
-</html>
+  </div>
+  <div class="rule focus">
+    <div class="ic"><svg viewBox="0 0 24 24"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="15 7 21 7 21 13"/></svg></div>
+    <div>
+      <h3>Focus</h3>
+      <div class="cond">200-day SMA &lt; TQQQ close &lt; SMA +5%</div>
+      <p>Swap <b>all SGOV into TQQQ</b>, and new money buys TQQQ too. If you hold SPYM bought during the
+        overheated regime, <b>keep it</b>. This band is where most of the strategy's returns are made.</p>
+    </div>
+  </div>
+  <div class="rule hot">
+    <div class="ic"><svg viewBox="0 0 24 24"><path d="M10 14.5V5a2 2 0 1 1 4 0v9.5a4 4 0 1 1-4 0Z"/><circle cx="12" cy="18" r="1.4" fill="currentColor" stroke="none"/></svg></div>
+    <div>
+      <h3>Overheated</h3>
+      <div class="cond">TQQQ close &gt; SMA +5% (envelope)</div>
+      <p>Keep existing TQQQ, but <b>park new money in SPYM</b> to manage risk. It may be a short-term
+        overheat signal, so build the stable asset instead of chasing.</p>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h2>Why SPYM must not be touched</h2>
+  <p class="lead">When the focus regime arrives, it's tempting to sell SPYM as well and go all-in on TQQQ.
+    Over the long run, that choice tends to eat your returns.</p>
+  <div class="note" style="margin-top:14px">
+    SPYM is the account's <b>ballast</b>. It keeps the whole account from collapsing when TQQQ crashes,
+    and that bit of stability compounds into a large long-term difference.
+    Of course, <b>when the falling regime arrives, SPYM is sold too</b> — by the rules — into SGOV.
+  </div>
+</div>
+
+<div class="card">
+  <h2>The strategy on real data</h2>
+  <p class="lead">These charts reproduce the exact rules on the last 10 years of data. Green shading marks
+    TQQQ holding periods — walking sideways through the 2022 bear and re-entering on the 2023 golden cross
+    is this strategy's signature scene.</p>
+  <img class="chart" src="assets/strategies/original_price.png" alt="TQQQ 200일선 보유 구간 차트">
+  <div class="cap">Last 5 years · green shading = holding periods</div>
+  <img class="chart" src="assets/strategies/original_equity.png" alt="10년 성장 곡선과 CAGR·MDD">
+  <div class="cap">Last 10 years · growth of $1 (no taxes/fees; reference only)</div>
+  <a class="cta" href="strategy-original-en.html">Full rules &amp; FAQ for this strategy</a>
+</div>
+
+<div class="card">
+  <h2>Summary</h2>
+  <ul class="sum">
+    <li><b>Falling</b> — sell everything → 100% SGOV</li>
+    <li><b>Rising (near the 200-day line)</b> — SGOV → TQQQ; keep SPYM</li>
+    <li><b>Overheated (+5% and above)</b> — new money to SPYM; hold TQQQ</li>
+    <li><b>Never sell SPYM</b> during focus — except in the falling regime</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h2>Sources</h2>
+  <div class="src">
+    • <a href="https://www.fmkorea.com/7325015916" target="_blank" rel="noopener">Original post (fmkorea, Korean)</a><br>
+    • <a href="https://www.fmkorea.com/8981905819" target="_blank" rel="noopener">[Official] restatement (Korean)</a><br>
+    • <a href="https://www.fmkorea.com/7459764711" target="_blank" rel="noopener">FAQ (Korean)</a><br>
+    • <a href="https://www.fmkorea.com/7353849787" target="_blank" rel="noopener">Backtest verification (Korean)</a><br>
+    • <a href="https://blog.naver.com/humblich" target="_blank" rel="noopener">Official blog (Korean)</a>
+  </div>
+  <a class="cta" href="strategies-en.html">See all 7 strategies</a>
+</div>
+
+<div class="card">
+  <div class="note">
+    <b>Disclaimer</b> — This method is reference material only; investment decisions and responsibility are
+    yours. Leveraged ETFs carry high loss risk alongside high potential returns. Invest carefully, with full
+    understanding.
+  </div>
+</div>
+
+<div class="foot">© 2026 AGITQ Playbook · The method belongs to its author, AGITQ.<br>
+Contact: fattaillabs.ceo@gmail.com</div>
+</div></body></html>

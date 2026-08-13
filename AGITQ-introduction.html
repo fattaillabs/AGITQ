@@ -1,309 +1,156 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>아기티큐 매매기법 - 아기티큐 플레이북</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.7;
-            color: #333;
-            background-color: #f5f7fa;
-            padding: 20px;
-        }
-        
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background-color: #fff;
-            padding: 40px;
-            border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-        }
-        
-        h1 {
-            font-size: 32px;
-            color: #1a1a1a;
-            margin-bottom: 10px;
-            text-align: center;
-        }
-        
-        .subtitle {
-            text-align: center;
-            color: #666;
-            margin-bottom: 30px;
-            font-size: 16px;
-        }
-        
-        .creator-info {
-            text-align: center;
-            margin-bottom: 30px;
-            padding: 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 12px;
-            color: white;
-        }
-        
-        .creator-info p {
-            margin-bottom: 10px;
-        }
-        
-        .creator-info a {
-            color: #fff;
-            text-decoration: underline;
-            font-weight: 600;
-        }
-        
-        h2 {
-            font-size: 22px;
-            color: #2c3e50;
-            margin-top: 40px;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 3px solid #667eea;
-        }
-        
-        h3 {
-            font-size: 18px;
-            color: #34495e;
-            margin-top: 25px;
-            margin-bottom: 12px;
-        }
-        
-        p {
-            margin-bottom: 15px;
-            text-align: justify;
-        }
-        
-        .image-container {
-            margin: 30px 0;
-            text-align: center;
-        }
-        
-        .image-container img {
-            max-width: 100%;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .image-caption {
-            margin-top: 10px;
-            font-size: 14px;
-            color: #888;
-        }
-        
-        .rule-card {
-            margin: 20px 0;
-            padding: 25px;
-            border-radius: 12px;
-            border-left: 5px solid;
-        }
-        
-        .rule-card.bearish {
-            background-color: #fef3f3;
-            border-color: #e74c3c;
-        }
-        
-        .rule-card.bullish {
-            background-color: #f0fdf4;
-            border-color: #27ae60;
-        }
-        
-        .rule-card.overheat {
-            background-color: #fffbeb;
-            border-color: #f39c12;
-        }
-        
-        .rule-card h4 {
-            font-size: 17px;
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .rule-card.bearish h4 { color: #c0392b; }
-        .rule-card.bullish h4 { color: #1e8449; }
-        .rule-card.overheat h4 { color: #d68910; }
-        
-        .condition {
-            font-family: 'SF Mono', Consolas, monospace;
-            background-color: rgba(0,0,0,0.05);
-            padding: 3px 8px;
-            border-radius: 4px;
-            font-size: 14px;
-        }
-        
-        .warning-box {
-            background-color: #fef9e7;
-            border: 2px solid #f1c40f;
-            border-radius: 12px;
-            padding: 25px;
-            margin: 30px 0;
-        }
-        
-        .warning-box h4 {
-            color: #9a7b0a;
-            margin-bottom: 15px;
-            font-size: 18px;
-        }
-        
-        .summary-box {
-            background: linear-gradient(135deg, #e8f4f8 0%, #d4edda 100%);
-            border-radius: 12px;
-            padding: 25px;
-            margin: 30px 0;
-        }
-        
-        .summary-box h4 {
-            color: #2c3e50;
-            margin-bottom: 15px;
-        }
-        
-        .summary-box ul {
-            list-style: none;
-            padding: 0;
-        }
-        
-        .summary-box li {
-            padding: 8px 0;
-            padding-left: 25px;
-            position: relative;
-        }
-        
-        .summary-box li::before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: #27ae60;
-            font-weight: bold;
-        }
-        
-        .footer {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid #eee;
-            color: #888;
-            font-size: 14px;
-        }
-        
-        .disclaimer {
-            background-color: #f8f9fa;
-            border-radius: 8px;
-            padding: 15px;
-            margin-top: 30px;
-            font-size: 13px;
-            color: #666;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>아기티큐 매매기법 — 아기티큐 플레이북</title>
+<meta name="description" content="TQQQ 200일 이동평균선 기반 자산배분 전략 — 세 가지 시장 상황과 행동 원칙, 원글 출처와 백테스트까지.">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+  color:#2b2f3a; background:linear-gradient(135deg,#f5f7fa 0%,#e4e8eb 100%); min-height:100vh; padding:24px 16px; }
+.wrap { max-width:860px; margin:0 auto; }
+.card { background:#fff; border-radius:16px; box-shadow:0 4px 18px rgba(60,70,110,0.08); padding:28px; margin-bottom:20px; }
+.hero { background:linear-gradient(135deg,#667eea 0%,#764ba2 100%); color:#fff; border-radius:16px; padding:36px 28px; margin-bottom:20px; }
+.hero h1 { font-size:27px; font-weight:800; letter-spacing:-.6px; margin-bottom:8px; }
+.hero p { opacity:.92; font-size:14.5px; line-height:1.65; }
+.crumb { font-size:13px; margin-bottom:14px; }
+.crumb a { color:rgba(255,255,255,.85); text-decoration:none; }
+.badge { display:inline-block; background:rgba(255,255,255,.22); border:1px solid rgba(255,255,255,.4);
+  border-radius:999px; padding:3px 12px; font-size:12px; margin-bottom:12px; }
+.credit { margin-top:16px; font-size:12.5px; color:rgba(255,255,255,.85); }
+.credit a { color:#fff; }
+h2 { font-size:19px; margin:2px 0 14px; color:#2b2f3a; border-bottom:3px solid #667eea; display:inline-block; padding-bottom:4px; }
+p.lead { font-size:14.5px; line-height:1.8; color:#444; }
+.rule { display:flex; gap:14px; padding:16px 0; border-bottom:1px solid #eef0f5; }
+.rule:last-child { border-bottom:none; }
+.rule .ic { width:40px; height:40px; border-radius:12px; display:flex; align-items:center; justify-content:center; flex:none; }
+.rule .ic svg { width:20px; height:20px; stroke:currentColor; fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+.rule.cold .ic { background:#eef0fb; color:#5666c9; } .rule.focus .ic { background:#e8f6ec; color:#2f9e55; } .rule.hot .ic { background:#fdf3dd; color:#c98a00; }
+.rule h3 { font-size:15.5px; font-weight:700; margin-bottom:3px; letter-spacing:-.3px; }
+.rule .cond { font-size:12px; color:#8a8f9c; font-variant-numeric:tabular-nums; margin-bottom:6px; }
+.rule p { font-size:13.5px; color:#555; line-height:1.7; }
+.rule b { color:#2b2f3a; }
+img.chart { width:100%; border-radius:10px; border:1px solid #eef0f5; margin:10px 0 4px; }
+.cap { font-size:12px; color:#8a8f9c; margin-bottom:6px; }
+.note { background:#fdf7e8; border:1px solid #f2e2b8; border-radius:12px; padding:16px 18px; font-size:13.5px;
+  color:#7a5d1e; line-height:1.75; }
+.note b { color:#5d4610; }
+ul.sum { list-style:none; margin-top:4px; }
+ul.sum li { font-size:14px; color:#444; line-height:1.7; padding:9px 0 9px 26px; border-bottom:1px solid #eef0f5; position:relative; }
+ul.sum li:last-child { border-bottom:none; }
+ul.sum li::before { content:''; position:absolute; left:4px; top:17px; width:7px; height:7px; border-radius:50%; background:#667eea; }
+.src { font-size:13px; line-height:1.9; }
+.src a { color:#667eea; text-decoration:none; }
+.cta { display:block; text-align:center; background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);
+  color:#fff; border-radius:12px; padding:15px; font-weight:700; text-decoration:none; font-size:15px; margin-top:14px; }
+.foot { text-align:center; font-size:12px; color:#9aa0ab; padding:18px 0 6px; line-height:1.7; }
+.lang { float:right; font-size:12.5px; } .lang a { color:rgba(255,255,255,.9); text-decoration:underline; }
+@media (max-width:520px){ .card{padding:20px} .hero{padding:28px 20px} }
+</style>
 </head>
-<body>
-    <div class="container">
-        <h1>📈 아기티큐 매매기법</h1>
-        <p class="subtitle">TQQQ 200일선 기반 자산배분 전략</p>
-        
-        <div class="creator-info">
-            <p><strong>아기티큐</strong>님이 개발한 고유의 투자 기법입니다.</p>
-            <p>📝 매매기법 공식 블로그: <a href="https://blog.naver.com/humblich" target="_blank">blog.naver.com/humblich</a></p>
-        </div>
-        
-        <h2>기본 개념</h2>
-        <p>
-            아기티큐 매매기법은 TQQQ(나스닥 3배 레버리지 ETF)의 200일 이동평균선을 기준으로
-            시장 상황을 판단하고, 그에 맞는 자산 배분을 실행하는 투자 전략입니다.
-        </p>
-        
-        <div class="image-container">
-            <img src="https://image.fmkorea.com/files/attach/new5/20251002/8974099964_192159903_dc31efdd83eef4d6deec92d6b1be3761.jpg" alt="아기티큐 매매기법 기본 개념">
-            <p class="image-caption">기본 개념 (출처: fmkorea 아기티큐님 글)</p>
-        </div>
-        
-        <h2>세 가지 시장 상황과 행동 원칙</h2>
-        <p>이 투자법의 핵심은 시장 상황에 따른 <strong>세 가지 명확한 행동 규칙</strong>입니다.</p>
-        
-        <div class="rule-card bearish">
-            <h4>🔴 하락 상황</h4>
-            <p class="condition">TQQQ 종가 &lt; 200일선</p>
-            <p>
-                모든 성장 자산(TQQQ, SPYM(구 SPYM(구 SPYM(구 SPLG))))을 <strong>전량 매도</strong>하고, 
-                <strong>100% SGOV</strong>(단기 국채 ETF)로 전환합니다.
-            </p>
-        </div>
-        
-        <div class="rule-card bullish">
-            <h4>🟢 집중 투자 상황</h4>
-            <p class="condition">200일선 &lt; TQQQ 종가 &lt; 200일선 + 5%</p>
-            <p>
-                안전 자산(SGOV)은 전량 <strong>TQQQ로 교체</strong>합니다. 
-                신규 자금도 TQQQ를 매수합니다. 
-                단, 이전에 '과열 상황'에서 매수한 SPYM(구 SPYM(구 SPYM(구 SPLG)))가 있다면 <strong>그대로 보유</strong>합니다.
-            </p>
-            <p><em>→ 수익을 극대화하는 핵심 구간입니다.</em></p>
-        </div>
-        
-        <div class="rule-card overheat">
-            <h4>🟡 과열 상황</h4>
-            <p class="condition">TQQQ 종가 &gt; 200일선 + 5%</p>
-            <p>
-                기존 TQQQ는 <strong>그대로 보유</strong>합니다. 
-                월급 등 새로 생긴 돈은 <strong>SPYM(구 SPYM(구 SPYM(구 SPLG)))를 매수</strong>하여 리스크를 관리합니다.
-            </p>
-            <p><em>→ 단기 과열 신호일 수 있으므로, 추격 매수 대신 안정적인 자산을 추가합니다.</em></p>
-        </div>
-        
-        <div class="warning-box">
-            <h4>⚠️ 매우 중요: SPYM(구 SPYM(구 SPYM(구 SPLG)))를 지켜야 하는 이유</h4>
-            <p>
-                '집중 투자 상황'에서 "SPYM(구 SPYM(구 SPYM(구 SPLG)))까지 전부 팔아서 TQQQ에 올인하면 더 좋지 않을까?"라는 
-                유혹이 생길 수 있습니다. 하지만 이는 장기적으로 <strong>오히려 수익률을 갉아먹는 최악의 선택</strong>이 될 수 있습니다.
-            </p>
-            <p>
-                SPYM(구 SPYM(구 SPYM(구 SPLG)))는 일종의 <strong>'무게추' 역할</strong>을 하여, TQQQ가 급락할 때 계좌 전체가 무너지는 것을 막아줍니다.
-                이 작은 안정성이 장기적으로는 복리의 마법을 통해 <strong>엄청난 수익률 차이</strong>를 만들어냅니다.
-            </p>
-            <p>
-                물론, '하락 상황'이 오면 SPYM(구 SPYM(구 SPYM(구 SPLG)))도 <strong>원칙대로 함께 매도</strong>하고 SGOV로 전환해야 합니다.
-            </p>
-        </div>
-        
-        <h2>장기 백테스트 결과</h2>
-        <p>
-            아래 차트는 원칙을 지킨 경우와 그렇지 않은 경우의 장기 수익률 차이를 보여줍니다.
-        </p>
-        
-        <div class="image-container">
-            <img src="https://image.fmkorea.com/files/attach/new5/20251002/8974099964_192159903_2230d119836c7535442cae2e40d65b39.jpg" alt="장기 백테스트 결과">
-            <p class="image-caption">장기 백테스트 결과 (출처: fmkorea 아기티큐님 글)</p>
-        </div>
-        
-        <div class="summary-box">
-            <h4>📋 핵심 요약</h4>
-            <ul>
-                <li><strong>하락장</strong>: 모든 자산 매도 → SGOV 100%</li>
-                <li><strong>상승장 (200일선 근처)</strong>: SGOV → TQQQ 전환, SPYM(구 SPYM(구 SPYM(구 SPLG)))는 보유 유지</li>
-                <li><strong>과열장 (200일선 +5% 이상)</strong>: 신규 자금은 SPYM(구 SPYM(구 SPYM(구 SPLG)))로, 기존 TQQQ 보유</li>
-                <li><strong>SPYM(구 SPYM(구 SPYM(구 SPLG))) 매도 금지</strong>: 집중 투자 중 SPYM(구 SPYM(구 SPYM(구 SPLG)))는 절대 팔지 않기 (하락장 제외)</li>
-            </ul>
-        </div>
-        
-        <div class="disclaimer">
-            <strong>⚠️ 투자 유의사항</strong><br>
-            본 매매기법은 투자 참고 자료일 뿐이며, 투자의 최종 판단과 책임은 투자자 본인에게 있습니다.
-            레버리지 ETF는 높은 수익 가능성과 함께 높은 손실 위험도 수반합니다.
-            반드시 충분한 학습과 이해를 바탕으로 신중하게 투자하시기 바랍니다.
-        </div>
-        
-        <div class="footer">
-            <p>© 2024 아기티큐 플레이북. 매매기법 저작권은 아기티큐님에게 있습니다.</p>
-        </div>
+<body><div class="wrap">
+
+<div class="hero">
+  <div class="lang"><a href="AGITQ-introduction-en.html">English</a></div>
+  <div class="crumb"><a href="index.html">← 홈으로</a></div>
+  <span class="badge">원조 매매기법</span>
+  <h1>아기티큐 매매기법</h1>
+  <p>TQQQ 200일 이동평균선 하나로 시장 상황을 판단하고, 상황별로 정해진 자산배분을 실행하는 투자 전략입니다.
+     예측하지 않습니다 — 규칙을 따를 뿐입니다.</p>
+  <div class="credit">아기티큐 님이 개발·공개한 기법입니다 · 공식 블로그
+    <a href="https://blog.naver.com/humblich" target="_blank" rel="noopener">blog.naver.com/humblich</a></div>
+</div>
+
+<div class="card">
+  <h2>기본 개념</h2>
+  <p class="lead">기준은 단 하나, <b>TQQQ(나스닥 3배 레버리지 ETF)의 200일 이동평균선</b>입니다.
+    종가가 이 선의 어디에 있는지에 따라 시장을 세 가지 상황으로 나누고, 각 상황마다 해야 할 일이 미리 정해져 있습니다.
+    판단할 것이 없으니 감정이 끼어들 틈도 없습니다.</p>
+</div>
+
+<div class="card">
+  <h2>세 가지 시장 상황과 행동 원칙</h2>
+  <div class="rule cold">
+    <div class="ic"><svg viewBox="0 0 24 24"><polyline points="3 7 9 13 13 9 21 17"/><polyline points="21 11 21 17 15 17"/></svg></div>
+    <div>
+      <h3>하락 상황</h3>
+      <div class="cond">TQQQ 종가 &lt; 200일선</div>
+      <p>모든 성장 자산(TQQQ, SPYM)을 <b>전량 매도</b>하고 100% <b>SGOV</b>(단기 국채 ETF)로 전환합니다.
+        레버리지에서 완전히 내려와 다음 신호를 기다립니다.</p>
     </div>
-</body>
-</html>
+  </div>
+  <div class="rule focus">
+    <div class="ic"><svg viewBox="0 0 24 24"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="15 7 21 7 21 13"/></svg></div>
+    <div>
+      <h3>집중 투자 상황</h3>
+      <div class="cond">200일선 &lt; TQQQ 종가 &lt; 200일선 +5%</div>
+      <p>안전 자산(SGOV)을 <b>전량 TQQQ로 교체</b>하고, 신규 자금도 TQQQ를 매수합니다.
+        단, 과열 구간에서 사둔 SPYM이 있다면 <b>그대로 보유</b>합니다. 전략 수익의 대부분이 만들어지는 핵심 구간입니다.</p>
+    </div>
+  </div>
+  <div class="rule hot">
+    <div class="ic"><svg viewBox="0 0 24 24"><path d="M10 14.5V5a2 2 0 1 1 4 0v9.5a4 4 0 1 1-4 0Z"/><circle cx="12" cy="18" r="1.4" fill="currentColor" stroke="none"/></svg></div>
+    <div>
+      <h3>과열 상황</h3>
+      <div class="cond">TQQQ 종가 &gt; 200일선 +5% (Envelope)</div>
+      <p>기존 TQQQ는 그대로 보유하되, 월급 등 <b>새로 생긴 돈은 SPYM을 매수</b>해 리스크를 관리합니다.
+        단기 과열 신호일 수 있으므로 추격 매수 대신 안정적인 자산을 쌓습니다.</p>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h2>왜 SPYM을 지켜야 하나</h2>
+  <p class="lead">집중 투자 구간이 오면 "SPYM까지 다 팔아 TQQQ에 올인하면 더 좋지 않을까?"라는 유혹이 생깁니다.
+    하지만 장기적으로는 오히려 수익률을 갉아먹는 선택이 될 수 있습니다.</p>
+  <div class="note" style="margin-top:14px">
+    SPYM은 계좌의 <b>무게추</b>입니다. TQQQ가 급락할 때 계좌 전체가 무너지는 것을 막아주고,
+    그 작은 안정성이 복리를 통해 장기적으로 큰 수익률 차이를 만듭니다.
+    물론 <b>하락 상황이 오면 SPYM도 원칙대로 함께 매도</b>하고 SGOV로 전환합니다.
+  </div>
+</div>
+
+<div class="card">
+  <h2>실데이터로 보는 전략</h2>
+  <p class="lead">최근 10년 데이터로 이 전략의 규칙을 그대로 재현한 차트입니다. 초록 음영이 TQQQ 보유 구간 —
+    2022년 약세장에서 옆으로 걷다가 2023년 골든크로스에 재진입하는 모습이 이 전략의 핵심 장면입니다.</p>
+  <img class="chart" src="assets/strategies/original_price.png" alt="TQQQ 200일선 보유 구간 차트">
+  <div class="cap">최근 5년 · 초록 음영 = 보유 구간</div>
+  <img class="chart" src="assets/strategies/original_equity.png" alt="10년 성장 곡선과 CAGR·MDD">
+  <div class="cap">최근 10년 · $1 성장 시뮬레이션 (세금·수수료 미반영, 참고용)</div>
+  <a class="cta" href="strategy-original.html">이 전략의 규칙·FAQ 자세히 보기</a>
+</div>
+
+<div class="card">
+  <h2>핵심 요약</h2>
+  <ul class="sum">
+    <li><b>하락장</b> — 모든 자산 매도 → SGOV 100%</li>
+    <li><b>상승장(200일선 근처)</b> — SGOV → TQQQ 전환, SPYM은 보유 유지</li>
+    <li><b>과열장(+5% 이상)</b> — 신규 자금은 SPYM으로, 기존 TQQQ는 보유</li>
+    <li><b>SPYM 매도 금지</b> — 집중 투자 중에는 절대 팔지 않기 (하락장 제외)</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h2>원글 출처</h2>
+  <div class="src">
+    • <a href="https://www.fmkorea.com/7325015916" target="_blank" rel="noopener">아기티큐 매매기법 원글 (fmkorea)</a><br>
+    • <a href="https://www.fmkorea.com/8981905819" target="_blank" rel="noopener">[Official] 재정리판</a><br>
+    • <a href="https://www.fmkorea.com/7459764711" target="_blank" rel="noopener">FAQ 모음</a><br>
+    • <a href="https://www.fmkorea.com/7353849787" target="_blank" rel="noopener">백테스트 검증</a><br>
+    • <a href="https://blog.naver.com/humblich" target="_blank" rel="noopener">공식 블로그</a>
+  </div>
+  <a class="cta" href="strategies.html">7가지 전략 가이드 전체 보기</a>
+</div>
+
+<div class="card">
+  <div class="note">
+    <b>투자 유의사항</b> — 본 매매기법은 투자 참고 자료일 뿐이며, 투자의 최종 판단과 책임은 투자자 본인에게 있습니다.
+    레버리지 ETF는 높은 수익 가능성과 함께 높은 손실 위험을 수반합니다. 충분한 학습과 이해를 바탕으로 신중하게 투자하세요.
+  </div>
+</div>
+
+<div class="foot">© 2026 아기티큐 플레이북 · 매매기법 저작권은 아기티큐 님에게 있습니다.<br>
+문의: fattaillabs.ceo@gmail.com</div>
+</div></body></html>
