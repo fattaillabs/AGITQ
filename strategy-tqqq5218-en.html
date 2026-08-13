@@ -66,12 +66,13 @@ reducing crossovers. Optimization part 2 (fees included) recommended keeping n1 
 <div class="stat"><div class="v">38.3%</div><div class="k">10y CAGR (sim)</div></div>
 <div class="stat"><div class="v">-52.7%</div><div class="k">Max drawdown (sim)</div></div>
 </div></div>
+<div class="card"><h2>Signal & traded assets</h2><table class="rules"><tr><th>Signal (chart)</th><td>TQQQ itself · 5-day × 218-day SMA</td></tr><tr><th>Traded asset</th><td>TQQQ (3x Nasdaq)</td></tr><tr><th>Parked after sell</th><td>SGOV (short-term treasuries)</td></tr></table></div>
 <div class="card"><h2>Rules</h2><table class="rules"><tr><th>Signal</th><td>TQQQ 5-day vs 218-day SMA</td></tr><tr><th>Buy</th><td>5-day crosses above 218-day → buy TQQQ</td></tr><tr><th>Sell</th><td>5-day crosses below 218-day → sell all TQQQ</td></tr><tr><th>Basis</th><td>Optimization part 2: base-line band 210–230 holds up after fees</td></tr></table></div>
 <div class="card"><h2>Charts on real data</h2>
 <img class="chart" src="assets/strategies/tqqq5218_price.png" alt="TQQQ 5,218 signal chart"><div class="cap">Last 5 years · green shading = holding periods</div>
 <img class="chart" src="assets/strategies/tqqq5218_equity.png" alt="TQQQ 5,218 equity chart"><div class="cap">Last 10 years · growth of $1 (no taxes/fees)</div>
 </div>
-<div class="card"><h2>FAQ</h2><dl class="faq"><dt>How is it different from 1/200?</dt><dd>The 5-day signal line ignores one-day spikes and the 218-day base crosses less often — later entries/exits, but fewer trades, fees and tax events.</dd></dl></div>
+<div class="card"><h2>FAQ</h2><dl class="faq"><dt>How is it different from 1/200?</dt><dd>The 5-day signal line ignores one-day spikes and the 218-day base crosses less often — later entries/exits, but fewer trades, fees and tax events.</dd><dt>Does the base line have to be exactly 218?</dt><dd>No. The optimization series concluded any base in the 210–230 band works with a short signal line. Treating one number as special is overfitting — 218 is just a representative value.</dd><dt>Do fewer trades mean missed gains?</dt><dd>Entries and exits are later, but trading costs, tax events and execution mistakes drop. Backtests kept CAGR close to the original while cutting the effort — that is this variant's value.</dd></dl></div>
 <div class="card"><h2>Sources</h2><div class="src">• <a href='https://www.fmkorea.com/7398740367' target='_blank' rel='noopener'>Optimization part 2</a><br></div>
 <div class="note">Backtest charts on this page reproduce the app’s rules on Yahoo Finance daily data (last 10 years,
 adjusted closes) for reference only. Taxes, fees and slippage are not modeled, and past performance does not

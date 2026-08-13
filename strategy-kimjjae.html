@@ -67,12 +67,13 @@ a.scard .m { font-size:11.5px; color:#999; }
 <div class="stat"><div class="v">61.4%</div><div class="k">10년 CAGR (시뮬)</div></div>
 <div class="stat"><div class="v">-41.2%</div><div class="k">최대 낙폭 (시뮬)</div></div>
 </div></div>
+<div class="card"><h2>신호 자산 · 매매 자산</h2><table class="rules"><tr><th>신호(차트) 기준</th><td>QQQ 3/161 + TQQQ 200일선 (점수) · TQQQ 20일 변동성·이격도 (게이트)</td></tr><tr><th>실제 매매</th><td>점수에 따라 TQQQ / QLD / SGOV 3단 전환</td></tr><tr><th>매도 후 대기</th><td>SGOV (단기 국채)</td></tr></table></div>
 <div class="card"><h2>규칙</h2><table class="rules"><tr><th>점수</th><td>[QQQ 3>161 : +1] + [TQQQ>200일선 : +1]</td></tr><tr><th>배분</th><td>2점=TQQQ / 1점=QLD / 0점=SGOV (전량)</td></tr><tr><th>변동성 게이트</th><td>TQQQ 20일 변동성 ≥ 6.2 → 전량 SGOV</td></tr><tr><th>이격도 게이트</th><td>TQQQ가 200일선의 151% 이상 → 매도, 118% 이하 냉각 후에만 재진입</td></tr></table></div>
 <div class="card"><h2>실데이터 차트</h2>
 <img class="chart" src="assets/strategies/kimjjae_price.png" alt="김째아빠 (점수 기반) signal chart"><div class="cap">최근 5년 · 초록 음영 = 보유 구간</div>
 <img class="chart" src="assets/strategies/kimjjae_equity.png" alt="김째아빠 (점수 기반) equity chart"><div class="cap">최근 10년 · $1 성장 시뮬레이션 (세금·수수료 미반영)</div>
 </div>
-<div class="card"><h2>자주 묻는 질문</h2><dl class="faq"><dt>반쪽 신호(1점)에 QLD를 쓰는 이유는?</dt><dd>두 신호가 엇갈린 애매한 구간에서 레버리지를 절반으로 줄여 노출을 유지하는 절충입니다. 전부 나가지도, 3배를 다 지지도 않습니다.</dd><dt>원글과 값이 다른데요?</dt><dd>원글 초안은 QQQ 20일 변동성 2% 게이트였고, 이격도 게이트가 없었습니다. 앱은 이후 개선된 값(TQQQ 6.2, 이격도 151/118)을 사용합니다 — 페이지 서술과 앱은 항상 최신 구현 기준입니다.</dd></dl></div>
+<div class="card"><h2>자주 묻는 질문</h2><dl class="faq"><dt>반쪽 신호(1점)에 QLD를 쓰는 이유는?</dt><dd>두 신호가 엇갈린 애매한 구간에서 레버리지를 절반으로 줄여 노출을 유지하는 절충입니다. 전부 나가지도, 3배를 다 지지도 않습니다.</dd><dt>원글과 값이 다른데요?</dt><dd>원글 초안은 QQQ 20일 변동성 2% 게이트였고, 이격도 게이트가 없었습니다. 앱은 이후 개선된 값(TQQQ 6.2, 이격도 151/118)을 사용합니다 — 페이지 서술과 앱은 항상 최신 구현 기준입니다.</dd><dt>변동성 6.2라는 숫자의 의미는?</dt><dd>TQQQ 일수익률의 20일 표준편차(%)입니다. 이 수준이면 연환산 약 100% 변동성 — 이런 급변장에서는 추세 신호의 신뢰도가 무너지므로 점수와 무관하게 전량 현금(SGOV)으로 피합니다.</dd><dt>이격도 게이트는 왜 필요한가요?</dt><dd>추세 점수는 "얼마나 과열됐는지"를 모릅니다. TQQQ가 200일선의 151%를 넘으면 과열로 보고 익절하며, 118% 이하로 식어야만 재진입합니다. 원저자의 표현대로 "현금은 추격하지 않는다"입니다.</dd></dl></div>
 <div class="card"><h2>출처</h2><div class="src">• <a href='https://www.fmkorea.com/9430067016' target='_blank' rel='noopener'>원글 — TQQQ 200일선 개선 아이디어</a><br></div>
 <div class="note">본 페이지의 백테스트 차트는 야후 파이낸스 일봉(최근 10년, 배당 조정 종가)으로 앱의 규칙을 재현한
 참고 자료입니다. 세금·수수료·호가 슬리피지를 반영하지 않았고, 과거 성과는 미래 수익을 보장하지 않습니다.

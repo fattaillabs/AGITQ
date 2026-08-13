@@ -68,12 +68,13 @@ a.scard .m { font-size:11.5px; color:#999; }
 <div class="stat"><div class="v">32.4%</div><div class="k">10년 CAGR (시뮬)</div></div>
 <div class="stat"><div class="v">-53.5%</div><div class="k">최대 낙폭 (시뮬)</div></div>
 </div></div>
+<div class="card"><h2>신호 자산 · 매매 자산</h2><table class="rules"><tr><th>신호(차트) 기준</th><td>TQQQ · 5일선 × 220일선 + QQQ 52주 고점 낙폭 · TQQQ RSI(14)</td></tr><tr><th>실제 매매</th><td>TQQQ (나스닥 3배, 비중 조절식)</td></tr><tr><th>매도 후 대기</th><td>SGOV (단기 국채)</td></tr></table></div>
 <div class="card"><h2>규칙</h2><table class="rules"><tr><th>추세</th><td>TQQQ 5일선×220일선 — 골든=전액 매수, 데드=전량 매도</td></tr><tr><th>DIP 매수</th><td>QQQ 52주 고점 대비 −10%: 20%(RSI≤35면 30%) / −22%: +50% / −40% 미만: 중단</td></tr><tr><th>단계 익절</th><td>+15% → 50%만 유지 / +68% → 35% / +350% → 15% (졸업)</td></tr><tr><th>기본값</th><td>호리오리 공개값 — 앱에서 조정 가능</td></tr></table></div>
 <div class="card"><h2>실데이터 차트</h2>
 <img class="chart" src="assets/strategies/snowball_price.png" alt="눈덩이 (5,220 + DIP) signal chart"><div class="cap">최근 5년 · 초록 음영 = 보유 구간</div>
 <img class="chart" src="assets/strategies/snowball_equity.png" alt="눈덩이 (5,220 + DIP) equity chart"><div class="cap">최근 10년 · $1 성장 시뮬레이션 (세금·수수료 미반영)</div>
 </div>
-<div class="card"><h2>자주 묻는 질문</h2><dl class="faq"><dt>추세 전략인데 왜 하락장에 매수하나요?</dt><dd>깊은 낙폭은 통계적으로 회복 기대가 큰 구간이라, 소량 분할로 미리 평단을 낮춰 다음 골든크로스의 눈덩이를 키우는 설계입니다. −40% 아래 중단은 시스템 리스크 방어선입니다.</dd><dt>익절이 아깝게 느껴집니다.</dt><dd>단계 익절은 수익 곡선의 변동성을 줄이고 "졸업" 시점을 명시해 장기 복리를 지키는 장치입니다. 앱에서 비율을 바꿀 수 있습니다.</dd></dl></div>
+<div class="card"><h2>자주 묻는 질문</h2><dl class="faq"><dt>추세 전략인데 왜 하락장에 매수하나요?</dt><dd>깊은 낙폭은 통계적으로 회복 기대가 큰 구간이라, 소량 분할로 미리 평단을 낮춰 다음 골든크로스의 눈덩이를 키우는 설계입니다. −40% 아래 중단은 시스템 리스크 방어선입니다.</dd><dt>익절이 아깝게 느껴집니다.</dt><dd>단계 익절은 수익 곡선의 변동성을 줄이고 "졸업" 시점을 명시해 장기 복리를 지키는 장치입니다. 앱에서 비율을 바꿀 수 있습니다.</dd><dt>DIP 매수 후에 데드크로스가 나면요?</dt><dd>규칙대로 전량 매도합니다 — DIP 물량도 예외가 없습니다. 손실이 날 수 있지만, −40% 아래에서 신규 매수를 멈추는 중단선과 함께 시스템 리스크를 제한하는 구조입니다.</dd><dt>"졸업"이 뭔가요?</dt><dd>수익률 +350%에 도달하면 15%만 남기고 수익을 확정하는 상태입니다. 한 사이클을 명시적으로 끝내고(눈덩이를 굴려 보낸 뒤) 다음 신호를 기다립니다 — 끝을 정해두는 것이 장기 복리를 지키는 장치입니다.</dd></dl></div>
 <div class="card"><h2>출처</h2><div class="src">• <a href='https://www.fmkorea.com/9577492265' target='_blank' rel='noopener'>커뮤니티 로직 해설 글 (참고)</a><br></div>
 <div class="note">본 페이지의 백테스트 차트는 야후 파이낸스 일봉(최근 10년, 배당 조정 종가)으로 앱의 규칙을 재현한
 참고 자료입니다. 세금·수수료·호가 슬리피지를 반영하지 않았고, 과거 성과는 미래 수익을 보장하지 않습니다.

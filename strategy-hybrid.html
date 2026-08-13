@@ -68,12 +68,13 @@ a.scard .m { font-size:11.5px; color:#999; }
 <div class="stat"><div class="v">39.6%</div><div class="k">10년 CAGR (시뮬)</div></div>
 <div class="stat"><div class="v">-48.1%</div><div class="k">최대 낙폭 (시뮬)</div></div>
 </div></div>
+<div class="card"><h2>신호 자산 · 매매 자산</h2><table class="rules"><tr><th>신호(차트) 기준</th><td>QQQ · 3일선 vs 185일선(매수)/161일선(매도)</td></tr><tr><th>실제 매매</th><td>TQQQ (나스닥 3배)</td></tr><tr><th>매도 후 대기</th><td>SGOV (단기 국채)</td></tr></table></div>
 <div class="card"><h2>규칙</h2><table class="rules"><tr><th>매수</th><td>QQQ 3일선이 185일선 상향 돌파 → 보유</td></tr><tr><th>예외 진입</th><td>역배열(161선>185선)에서 3일선이 두 선 사이 → 예외 보유</td></tr><tr><th>매도</th><td>보유 중 3일선<161선 / 예외 보유 중 3일선<185선</td></tr><tr><th>전환</th><td>예외 보유 중 3일선이 161선 상향 돌파 → 일반 보유</td></tr><tr><th>기타</th><td>당일 재진입 금지</td></tr></table></div>
 <div class="card"><h2>실데이터 차트</h2>
 <img class="chart" src="assets/strategies/hybrid_price.png" alt="하이브리드 3,185/161 signal chart"><div class="cap">최근 5년 · 초록 음영 = 보유 구간</div>
 <img class="chart" src="assets/strategies/hybrid_equity.png" alt="하이브리드 3,185/161 equity chart"><div class="cap">최근 10년 · $1 성장 시뮬레이션 (세금·수수료 미반영)</div>
 </div>
-<div class="card"><h2>자주 묻는 질문</h2><dl class="faq"><dt>매수선과 매도선을 왜 분리하나요?</dt><dd>원저자 백테스트에서 "3일선이 161선을 넘었다고 바로 사는" 케이스 중 185선까지 못 가는 실패 이벤트는 7회 전부 손실(평균 −7.6%)이었습니다. 매수만 문턱을 높이면 이런 구간을 피하면서 이탈은 빠르게 가져갑니다.</dd><dt>원글의 5% 밴드 매수 변형도 있나요?</dt><dd>원글에는 Envelope 밴드를 활용한 공격적 변형이 소개돼 있지만, 앱은 예외 배열 상태머신을 채택한 최신 구현을 기준으로 합니다.</dd></dl></div>
+<div class="card"><h2>자주 묻는 질문</h2><dl class="faq"><dt>매수선과 매도선을 왜 분리하나요?</dt><dd>원저자 백테스트에서 "3일선이 161선을 넘었다고 바로 사는" 케이스 중 185선까지 못 가는 실패 이벤트는 7회 전부 손실(평균 −7.6%)이었습니다. 매수만 문턱을 높이면 이런 구간을 피하면서 이탈은 빠르게 가져갑니다.</dd><dt>원글의 5% 밴드 매수 변형도 있나요?</dt><dd>원글에는 Envelope 밴드를 활용한 공격적 변형이 소개돼 있지만, 앱은 예외 배열 상태머신을 채택한 최신 구현을 기준으로 합니다.</dd><dt>예외 배열이 정확히 뭔가요?</dt><dd>보통은 161일선이 185일선 아래에 있지만, 급락 직후 회복기에는 순서가 뒤집힙니다(161선이 위). 이 역배열 구간에서 3일선이 두 선 사이로 들어오면 회복 랠리를 놓치지 않도록 "예외 보유"로 진입합니다 — 이때는 매도선도 185선으로 바뀝니다.</dd><dt>손절이 자주 나오면 어떡하죠?</dt><dd>매도선(161선)이 무너지면 기계적으로 나가는 것이 이 전략의 방어 장치입니다. 손절이 아프더라도 목적은 깊은 낙폭(MDD) 방어입니다 — 원저자도 손절 구간을 겪으며 이 규칙을 유지했습니다.</dd></dl></div>
 <div class="card"><h2>출처</h2><div class="src">• <a href='https://www.fmkorea.com/9592587295' target='_blank' rel='noopener'>3,185/161 정리글 (원저자)</a><br></div>
 <div class="note">본 페이지의 백테스트 차트는 야후 파이낸스 일봉(최근 10년, 배당 조정 종가)으로 앱의 규칙을 재현한
 참고 자료입니다. 세금·수수료·호가 슬리피지를 반영하지 않았고, 과거 성과는 미래 수익을 보장하지 않습니다.
